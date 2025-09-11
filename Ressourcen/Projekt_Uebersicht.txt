@@ -1,0 +1,74 @@
+Praxislabor AP08 - Reinigungsverwaltung
+
+Rollen:
+
+- Mitarbeitende		MA
+- Kundschaft		KU
+- Reinigungsfirma	RF
+- Administration	SA
+
+----------------------------------------------------------------------------------------
+
+Anwendung - Mitarbeitende - Putzung
+
+- Login
+	- Projekt (Vorauswahl <- von RF verwaltet)
+		- Zeitstempel (automatisch bei Abschicken) ODER Zeitraum (Start & Stopp Button)
+		- GPS (automatisch) PFLICHT!!
+		- Foto (via Kamera) (inklusive Zeitstempel)
+		- Bemerkung (Vorauswahl (<- von RF verwaltet), eigene Bemerkung möglich)
+
+		- Absenden
+
+----------------------------------------------------------------------------------------
+
+Anwendung - Verwaltung - Kundschaft
+
+- Login
+	- Liste an Putzungen bei KU (Quasi Putzformular in digitaler Form)
+
+----------------------------------------------------------------------------------------
+
+Anwendung - Verwaltung - Reinigungsfirma
+
+- Login
+	- Mitarbeiterverwaltung
+		- Auflisten
+		- Bearbeiten
+		- Neu Anlegen
+		- Löschen
+
+	- Kundenverwaltung
+		- Auflistung
+		- Bearbeiten
+		- Neu Anlegen
+		- Löschen
+		
+		- Projektverwaltung (pro Kunde)
+			- Auflistung
+			- Bearbeiten
+			- Neu Anlegen
+			- Löschen
+
+	- Zuweisung von Projekten an Mitarbeiter
+
+----------------------------------------------------------------------------------------
+
+Entität Projekt
+	
+	Firma: Name der Reinigungsfirma
+	Kunde: Name der Kundschaft
+	Standort: Adresse
+	Tätigkeiten: Liste an gewünschten Tätigkeiten
+	Zeitraum: Start Datum von Projekt, optional End Datum
+	Zeiten: Geplante Arbeitszeit
+
+----------------------------------------------------------------------------------------
+
+Anwendung - Verwaltung - Administration
+- Login
+	- Reinigungsfirmenverwaltung
+
+	- Alle Verwaltungsfähigkeiten, die auch Reinigungsfirma besitzt
+
+	- Zusätzliche Verwaltung -> Welche genau ??
