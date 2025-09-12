@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StempelApp.Models
+namespace backendConsoleDemo.Models
 {
     public enum UserType
     {

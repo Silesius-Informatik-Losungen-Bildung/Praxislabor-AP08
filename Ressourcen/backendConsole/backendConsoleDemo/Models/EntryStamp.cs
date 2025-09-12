@@ -1,6 +1,6 @@
-﻿using StempelApp.Models.Interfaces;
+﻿using backendConsoleDemo.Models.Interfaces;
 
-namespace StempelApp.Models
+namespace backendConsoleDemo.Models
 {
     public class EntryStamp : IEntry
     {

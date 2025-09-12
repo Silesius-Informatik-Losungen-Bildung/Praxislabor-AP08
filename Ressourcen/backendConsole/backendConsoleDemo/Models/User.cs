@@ -1,5 +1,5 @@
-﻿using StempelApp.Models.Interfaces;
-namespace StempelApp.Models
+﻿using backendConsoleDemo.Models.Interfaces;
+namespace backendConsoleDemo.Models
 {
     public class User : IUser
     {

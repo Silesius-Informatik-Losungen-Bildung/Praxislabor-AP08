@@ -1,4 +1,4 @@
-﻿namespace StempelApp.Models.Interfaces
+﻿namespace backendConsoleDemo.Models.Interfaces
 {
     public interface IUser
     {

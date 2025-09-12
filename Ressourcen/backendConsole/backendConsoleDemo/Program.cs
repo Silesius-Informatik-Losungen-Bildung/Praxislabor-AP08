@@ -1,4 +1,4 @@
-﻿namespace StempelApp
+﻿namespace backendConsoleDemo
 {
     internal class Program
     {
