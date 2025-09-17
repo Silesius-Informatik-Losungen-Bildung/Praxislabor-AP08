@@ -1,19 +1,7 @@
-﻿using backendConsoleDemo.Models.Interfaces;
-namespace backendConsoleDemo.Models
+﻿namespace backendConsoleDemo.Models
 {
-    public class User : IUser
+    public class User : BaseUser
     {
-        public Guid UserGuid { get; set; }
-        public User()
-        {
-            UserGuid = Guid.NewGuid();
-        }
-        public int UserTypeId { get; set; }
-        public UserType UserType
-        {
-            get => (UserType)UserTypeId;
-            set => UserTypeId = (int)value;
-        }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Username { get; set; }
