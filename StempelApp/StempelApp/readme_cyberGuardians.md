@@ -46,79 +46,79 @@ Konzept und programmiertechnische Umsetzung aller Authentifizierung- und Autoris
 ### Registrierungsvorgang
 
 #### AppAdmin legt CleaningFirma + CleaningAdmin an
-[AppAdmin wählt "Neue Firma anlegen"]
+AppAdmin wählt "Neue Firma anlegen"
       |
       v
-[Firmen-Daten in Formular eintragen]
+Firmen-Daten in Formular eintragen
       |
       v
-[System erstellt neuen Benutzer mit Rolle = CleaningAdmin, Status = "inaktiv", ohne Passwort]
+System erstellt neuen Benutzer mit Rolle = CleaningAdmin, Status = "inaktiv", ohne Passwort
       |
       v
-[System generiert Passwort-Reset-Token]
+System generiert Passwort-Reset-Token
       |
       v
-[System sendet E-Mail mit Einladungslink an CleaningAdmin]
+System sendet E-Mail mit Einladungslink an CleaningAdmin
 
 #### CleaningAdmin aktiviert Konto
-[CleaningAdmin erhält E-Mail mit Link]
+CleaningAdmin erhält E-Mail mit Link
       |
       v
-[Klick auf Link → ResetPassword-Seite mit Token]
+Klick auf Link → ResetPassword-Seite mit Token
       |
       v
-[Benutzer setzt eigenes Passwort]
+Benutzer setzt eigenes Passwort
       |
       v
-[System markiert Benutzer = "aktiv"]
+System markiert Benutzer = "aktiv"
       |
       v
-[Redirect → CleaningAdmin-Dashboard]
+Redirect → CleaningAdmin-Dashboard
 
 #### CleaningAdmin legt CleaningStaff an
-[CleaningAdmin wählt "Mitarbeiter anlegen"]
+CleaningAdmin wählt "Mitarbeiter anlegen"
       |
       v
-[E-Mail + Name eingeben]
+E-Mail + Name eingeben
       |
       v
-[System erstellt neuen Benutzer mit Rolle = CleaningStaff, Status = "inaktiv"]
+System erstellt neuen Benutzer mit Rolle = CleaningStaff, Status = "inaktiv"
       |
       v
-[System generiert Passwort-Reset-Token]
+System generiert Passwort-Reset-Token
       |
       v
-[System sendet E-Mail mit Einladungslink an CleaningStaff]
+System sendet E-Mail mit Einladungslink an CleaningStaff
 
 #### CleaningStaff aktiviert Konto
-[CleaningStaff klickt auf Einladungslink]
+CleaningStaff klickt auf Einladungslink
       |
       v
-[Passwort selbst festlegen]
+Passwort selbst festlegen
       |
       v
-[Redirect → Mitarbeiter-Dashboard]
+Redirect → Mitarbeiter-Dashboard
 
 #### CleaningAdmin legt BuildingOwner an
-[CleaningAdmin wählt "Gebäudebesitzer anlegen"]
+CleaningAdmin wählt "Gebäudebesitzer anlegen"
       |
       v
-[E-Mail + Name eingeben]
+E-Mail + Name eingeben
       |
       v
-[System erstellt neuen Benutzer mit Rolle = BuildingOwner, Status = "inaktiv"]
+System erstellt neuen Benutzer mit Rolle = BuildingOwner, Status = "inaktiv"
       |
       v
-[System generiert Passwort-Reset-Token]
+System generiert Passwort-Reset-Token
       |
       v
-[System sendet E-Mail mit Einladungslink an BuildingOwner]
+System sendet E-Mail mit Einladungslink an BuildingOwner
 
 #### BuildingOwner aktiviert Konto
-[BuildingOwner klickt auf Einladungslink]
+BuildingOwner klickt auf Einladungslink
       |
       v
-[Passwort selbst festlegen]
+Passwort selbst festlegen
       |
       v
-[Redirect → BuildingOwner-Dashboard]
+Redirect → BuildingOwner-Dashboard
