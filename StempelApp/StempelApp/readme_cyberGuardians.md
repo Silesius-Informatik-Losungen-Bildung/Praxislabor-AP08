@@ -39,3 +39,5 @@ Konzept und programmiertechnische Umsetzung aller Authentifizierung- und Autoris
 ---
 
 ### Sonstiges
+- Verwendung von Identity
+- optional: Pepper zum Hash hinzufügen
