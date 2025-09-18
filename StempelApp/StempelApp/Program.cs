@@ -6,6 +6,14 @@ namespace StempelApp
         {
             var builder = WebApplication.CreateBuilder(args);
 
+
+            builder.Services.AddAuthentication("CookieAuth")
+                .AddCookie("CookieAuth", options =>
+                {
+                    options.LoginPath = "/Account/Login";
+                });
+
+            builder.Services.AddAuthorization();
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
@@ -20,6 +28,7 @@ namespace StempelApp
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
