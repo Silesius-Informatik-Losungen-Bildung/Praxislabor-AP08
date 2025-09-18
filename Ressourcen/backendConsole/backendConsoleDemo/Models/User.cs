@@ -1,7 +1,14 @@
 ﻿namespace backendConsoleDemo.Models
 {
-    public class User : BaseUser
+    public class User : BaseEntity
     {
+        public Guid UserGuid { get; set; }
+        public int UserTypeId { get; set; }
+        public UserType UserType
+        {
+            get => (UserType)UserTypeId;
+            set => UserTypeId = (int)value;
+        }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Username { get; set; }

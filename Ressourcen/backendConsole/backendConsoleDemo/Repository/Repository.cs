@@ -1,4 +1,6 @@
-﻿using StempelAppCore.Models.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using StempelAppCore.Data;
+using StempelAppCore.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,21 +11,20 @@ namespace StempelAppCore.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        public T Add(int id) => 
+        private readonly StempelAppContext _context;
+        private readonly DbSet<T> _dbSet;
 
-        public T Delete(int id)
+        public Repository(StempelAppContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+            _dbSet = _context.Set<T>();
         }
 
-        public T Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public T Update(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task AddAsync(T entity) => await _dbSet.AddAsync(entity);
+        public async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();
+        public async Task<T> GetByIdAsync(int id) => await _dbSet.FindAsync(id);
+        public void Update(T entity) => _dbSet.Update(entity);
+        public void Delete(T entity) => _dbSet.Remove(entity);
+        public async Task SaveChangesAsync() => await _context.SaveChangesAsync();
     }
 }
