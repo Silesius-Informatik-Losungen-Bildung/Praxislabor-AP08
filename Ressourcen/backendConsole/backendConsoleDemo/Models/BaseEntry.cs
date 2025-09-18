@@ -3,7 +3,7 @@
     public class BaseEntry
     {
         public int EntryId { get; set; }
-        public int EmployeeId { get; set; }
+        public int UserId { get; set; }
         public double GPSLongitude { get; set; }
         public double GPSLatitude { get; set; }
         public string? Comment { get; set; }

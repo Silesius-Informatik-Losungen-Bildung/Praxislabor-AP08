@@ -18,6 +18,7 @@
         public bool HasProjects { get; set; }
         public DateTime CreatedOnUtc { get; set; }
         public DateTime? LastLoginDateUtc { get; set; }
-        public DateTime LastActivityDateUtc { get; set; }
+        public DateTime? LastActivityDateUtc { get; set; }
+        // public virtual ContactInfo { get; set; }
     }
 }
