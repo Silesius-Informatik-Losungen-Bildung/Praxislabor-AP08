@@ -1,0 +1,21 @@
+Standup
+
+Hr. Poczesniok (Auftraggeber/PM):
+	Phase 1 -> Nur Backoffice (Priorität: Mitarbeiter-Ansicht)
+
+Absicherer:
+	Letzte Woche: Grobe Übersicht Projekt
+	Diese Woche: Informationen von anderen Teams sammeln und dokumentieren
+				 Sprache (vorallem für Rollen) synchronisieren
+
+CyberGuardians:
+	Letzte Woche: Berechtigungen, Rollen, Views geplant (siehe Ressourcen)
+	Diese Woche: Erste Umsetzungen
+
+Schönbauer:
+	Letzte Woche: Mockups und Demo der Mitarbeiter-Ansicht
+	Diese Woche: Proof of Concept (GPS, Fotos)
+
+BackendBändiger:
+	Letzte Woche: basic Console App with initial models
+	Diese Woche: backend Console Demo
