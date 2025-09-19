@@ -2,9 +2,9 @@
 {
     public enum UserType
     {
-        Worker = 5,
-        Customer = 10,
-        Admin = 15,
+        CleaningPersonnel = 5,
+        BuildingOwner = 10,
+        CustomerAdmin = 15,
         SuperUser = 20
     }
 }
