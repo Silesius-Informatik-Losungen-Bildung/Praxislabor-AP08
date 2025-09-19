@@ -1,4 +1,4 @@
-﻿namespace backendApi.Models
+﻿namespace StempelAppCore.Models
 {
     public enum UserType
     {

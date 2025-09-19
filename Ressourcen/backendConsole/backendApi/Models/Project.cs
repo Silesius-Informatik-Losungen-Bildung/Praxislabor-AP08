@@ -1,6 +1,4 @@
-﻿using backendApi.Models;
-
-namespace StempelAppCore.Models
+﻿namespace StempelAppCore.Models
 {
     public class Project : BaseEntity
     {
