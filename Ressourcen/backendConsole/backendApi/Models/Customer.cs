@@ -1,4 +1,4 @@
-﻿using backendConsoleDemo.Models;
+﻿using backendApi.Models;
 
 namespace StempelAppCore.Models
 {

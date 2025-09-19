@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\backendConsoleDemo\StempelAppCore.csproj" />
+    <ProjectReference Include="..\backendApi\StempelAppCore.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace backendConsoleDemo.Models
+﻿namespace backendApi.Models
 {
     public class Entry : BaseEntity
     {

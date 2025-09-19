@@ -1,32 +1,27 @@
-﻿using backendConsoleDemo.Models;
+﻿using backendApi.Models;
 using StempelAppCore.Models.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StempelAppLib.Services
 {
     public class UserService : IUserService
     {
 
-        public Task<BaseUser> CreateNewUser()
+        public Task<User> CreateNewUser()
         {
             throw new NotImplementedException();
         }
 
-        public Task<BaseUser> DeleteUser()
+        public Task<User> DeleteUser()
         {
             throw new NotImplementedException();
         }
 
-        public Task<BaseUser> GetUser()
+        public Task<User> GetUser()
         {
             throw new NotImplementedException();
         }
 
-        public Task<BaseUser> UpdateUser()
+        public Task<User> UpdateUser()
         {
             throw new NotImplementedException();
         }
