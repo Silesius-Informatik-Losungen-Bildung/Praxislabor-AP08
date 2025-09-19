@@ -11,10 +11,10 @@ Konzept und programmiertechnische Umsetzung aller Authentifizierung- und Autoris
 ### Rollen
 |Name EN|Name DE|Berechtigungen|
 |---|---|---|
-|appAdmin|AppAdmin|- verwaltet ReinigungsAdmins<br>- Zugriff auf alle Daten|
-|cleaningAdmin|ReinigungsAdmin|- verwaltet ReinigungsMitarbeiter<br>- verwaltet ReinigungsKunden|
-|claeaningStaff|Reinigungskraft|varwalten von seinen Aufträgen|
-|buildingOwner|ImmobilienBesitzer|Nur Ansicht|
+|appAdmin|appAdmin|- verwaltet ReinigungsAdmins<br>- Zugriff auf alle Daten|
+|cleaningAdmin|reinigungsAdmin|- verwaltet ReinigungsMitarbeiter<br>- verwaltet ReinigungsKunden|
+|claeaningStaff|reinigungskraft|- verwalten von seinen Aufträgen|
+|buildingOwner|immobilienBesitzer|- nur Ansicht|
 
 ### Views
 - Registrierung
@@ -38,87 +38,49 @@ Konzept und programmiertechnische Umsetzung aller Authentifizierung- und Autoris
 
 ---
 
+### Registrierungsvorgang
+
+#### AppAdmin legt CleaningFirma + CleaningAdmin an
+1. AppAdmin wählt "Neue Firma anlegen"  
+1. Firmen-Daten in Formular eintragen
+1. System erstellt neuen Benutzer mit Rolle = CleaningAdmin, Status = "inaktiv", ohne Passwort
+1. System generiert Passwort-Reset-Token
+1. System sendet E-Mail mit Einladungslink an CleaningAdmin
+
+#### CleaningAdmin aktiviert Konto
+1. CleaningAdmin erhält E-Mail mit Link
+1. Klick auf Link → ResetPassword-Seite mit Token
+1. Benutzer setzt eigenes Passwort
+1. System markiert Benutzer = "aktiv"
+1. Redirect → CleaningAdmin-Dashboard
+
+#### CleaningAdmin legt CleaningStaff an
+1. CleaningAdmin wählt "Mitarbeiter anlegen"
+1. E-Mail + Name eingeben
+1. System erstellt neuen Benutzer mit Rolle = CleaningStaff, Status = "inaktiv"
+1. System generiert Passwort-Reset-Token
+1. System sendet E-Mail mit Einladungslink an CleaningStaff
+
+#### CleaningStaff aktiviert Konto
+1. CleaningStaff klickt auf Einladungslink
+1. Passwort selbst festlegen
+1. Redirect → Mitarbeiter-Dashboard
+
+#### CleaningAdmin legt BuildingOwner an
+1. CleaningAdmin wählt "Gebäudebesitzer anlegen"
+1. E-Mail + Name eingeben
+1. System erstellt neuen Benutzer mit Rolle = BuildingOwner, Status = "inaktiv"
+1. System generiert Passwort-Reset-Token
+1. System sendet E-Mail mit Einladungslink an BuildingOwner
+
+#### BuildingOwner aktiviert Konto
+1. BuildingOwner klickt auf Einladungslink
+1. Passwort selbst festlegen
+1. Redirect → BuildingOwner-Dashboard
+
+---
+
 ### Sonstiges
 - Verwendung von Identity
 - optional: Pepper zum Hash hinzufügen
 - IP-Adresse, Datum und Browser
-
-### Registrierungsvorgang
-
-#### AppAdmin legt CleaningFirma + CleaningAdmin an
-AppAdmin wählt "Neue Firma anlegen"
-      |
-      v
-Firmen-Daten in Formular eintragen
-      |
-      v
-System erstellt neuen Benutzer mit Rolle = CleaningAdmin, Status = "inaktiv", ohne Passwort
-      |
-      v
-System generiert Passwort-Reset-Token
-      |
-      v
-System sendet E-Mail mit Einladungslink an CleaningAdmin
-
-#### CleaningAdmin aktiviert Konto
-CleaningAdmin erhält E-Mail mit Link
-      |
-      v
-Klick auf Link → ResetPassword-Seite mit Token
-      |
-      v
-Benutzer setzt eigenes Passwort
-      |
-      v
-System markiert Benutzer = "aktiv"
-      |
-      v
-Redirect → CleaningAdmin-Dashboard
-
-#### CleaningAdmin legt CleaningStaff an
-CleaningAdmin wählt "Mitarbeiter anlegen"
-      |
-      v
-E-Mail + Name eingeben
-      |
-      v
-System erstellt neuen Benutzer mit Rolle = CleaningStaff, Status = "inaktiv"
-      |
-      v
-System generiert Passwort-Reset-Token
-      |
-      v
-System sendet E-Mail mit Einladungslink an CleaningStaff
-
-#### CleaningStaff aktiviert Konto
-CleaningStaff klickt auf Einladungslink
-      |
-      v
-Passwort selbst festlegen
-      |
-      v
-Redirect → Mitarbeiter-Dashboard
-
-#### CleaningAdmin legt BuildingOwner an
-CleaningAdmin wählt "Gebäudebesitzer anlegen"
-      |
-      v
-E-Mail + Name eingeben
-      |
-      v
-System erstellt neuen Benutzer mit Rolle = BuildingOwner, Status = "inaktiv"
-      |
-      v
-System generiert Passwort-Reset-Token
-      |
-      v
-System sendet E-Mail mit Einladungslink an BuildingOwner
-
-#### BuildingOwner aktiviert Konto
-BuildingOwner klickt auf Einladungslink
-      |
-      v
-Passwort selbst festlegen
-      |
-      v
-Redirect → BuildingOwner-Dashboard
