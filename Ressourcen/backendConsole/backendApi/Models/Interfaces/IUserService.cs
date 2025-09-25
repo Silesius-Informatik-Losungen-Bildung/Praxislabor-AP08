@@ -1,6 +1,4 @@
-﻿using backendApi.Models;
-
-namespace StempelAppCore.Models.Interfaces
+﻿namespace StempelAppCore.Models.Interfaces
 {
     public interface IUserService
     {

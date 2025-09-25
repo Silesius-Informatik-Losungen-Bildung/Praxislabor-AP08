@@ -5,7 +5,6 @@ namespace StempelAppLib.Services
 {
     public class UserService : IUserService
     {
-
         public Task<User> CreateNewUser()
         {
             throw new NotImplementedException();

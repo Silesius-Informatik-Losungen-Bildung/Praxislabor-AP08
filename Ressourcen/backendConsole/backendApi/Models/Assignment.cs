@@ -1,6 +1,6 @@
 ﻿namespace StempelAppCore.Models
 {
-    public partial class Entry : BaseEntity
+    public partial class Assignment : BaseEntity
     {
         public int UserId { get; set; }
         public double GPSLongitude { get; set; }
