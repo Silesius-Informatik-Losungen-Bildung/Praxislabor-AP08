@@ -1,0 +1,412 @@
+<mxfile host="65bd71144e">
+    <diagram id="hbqXBSko7hoHOlikOcZ4" name="Seite-1">
+        <mxGraphModel dx="1294" dy="668" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="80" width="760" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Suchen" style="rounded=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="559" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Reinigungsfirma" style="rounded=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="41" y="120" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Reinigungsfirma&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="41" y="200" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Reinigungsfirma&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="41" y="160" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Neue Firma" style="rounded=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="42" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="559" y="120" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="638" y="120" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="559" y="160" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="638" y="160" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="559" y="200" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="638" y="200" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Dashboard AppAdmin" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="440" width="760" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Firmenname" style="rounded=0;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry x="40" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Adresse" style="rounded=0;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry x="240" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="Speichern" style="rounded=0;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry x="560" y="320" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="CleaningAdmin" style="rounded=0;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry x="40" y="120" width="440" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="CleaningAdmin" style="rounded=0;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry x="40" y="200" width="440" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="CleaningAdmin" style="rounded=0;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry x="40" y="160" width="440" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry x="480" y="120" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry x="480" y="160" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry x="480" y="200" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="+ Neuer CleaningAdmin" style="rounded=0;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry x="595" y="240" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="E-Mail Input" style="rounded=0;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry x="40" y="240" width="440" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="Speichern" style="rounded=0;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry x="480" y="240" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Reinigungsfirma bearbeiten" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="400" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="920" width="760" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="Nachname" style="rounded=0;whiteSpace=wrap;html=1;" parent="47" vertex="1">
+                    <mxGeometry x="40" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="Adresse" style="rounded=0;whiteSpace=wrap;html=1;" parent="47" vertex="1">
+                    <mxGeometry x="40" y="120" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="Speichern" style="rounded=0;whiteSpace=wrap;html=1;" parent="47" vertex="1">
+                    <mxGeometry x="560" y="200" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="Firma" style="rounded=0;whiteSpace=wrap;html=1;" parent="47" vertex="1">
+                    <mxGeometry x="40" y="200" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="Neuer ReinigungsAdmin" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="880" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1280" width="760" height="760" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" value="Suchen" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="558" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="Reinigungskraft" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="40" y="120" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Reinigungskraft&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="40" y="200" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Reinigungskraft&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="40" y="160" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="Neuer CleaningStaff" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="41" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="558" y="120" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="637" y="120" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="558" y="160" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="637" y="160" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="558" y="200" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="637" y="200" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" value="Suchen" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="558" y="280" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Immobilienbesitzer&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="40" y="360" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="89" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Immobilienbesitzer&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="40" y="440" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="90" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Immobilienbesitzer&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="40" y="400" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" value="Neuer Immobilienbesitzer" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="41" y="280" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="558" y="360" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="93" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="637" y="360" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="558" y="400" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="637" y="400" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="96" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="558" y="440" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="97" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="637" y="440" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="173" value="Suchen" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="558" y="520" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="174" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Job&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="40" y="600" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="175" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Job&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="40" y="680" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="176" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Job&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="40" y="640" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="177" value="Neuer Job" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="41" y="520" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="178" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="558" y="600" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="179" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="637" y="600" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="180" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="558" y="640" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="181" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="637" y="640" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="182" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="558" y="680" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="183" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="64" vertex="1">
+                    <mxGeometry x="637" y="680" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="Dashboard ReinigungsAdmin" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1240" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="98" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="2480" width="760" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" value="Nachname" style="rounded=0;whiteSpace=wrap;html=1;" parent="98" vertex="1">
+                    <mxGeometry x="40" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="100" value="Adresse" style="rounded=0;whiteSpace=wrap;html=1;" parent="98" vertex="1">
+                    <mxGeometry x="40" y="120" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" value="Speichern" style="rounded=0;whiteSpace=wrap;html=1;" parent="98" vertex="1">
+                    <mxGeometry x="560" y="200" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="106" value="E-Mail" style="rounded=0;whiteSpace=wrap;html=1;" parent="98" vertex="1">
+                    <mxGeometry x="40" y="200" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" value="Neue Reinigungskraft" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="2440" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="108" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="2840" width="760" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="109" value="Firmenname" style="rounded=0;whiteSpace=wrap;html=1;" parent="108" vertex="1">
+                    <mxGeometry x="40" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" value="Adresse" style="rounded=0;whiteSpace=wrap;html=1;" parent="108" vertex="1">
+                    <mxGeometry x="300" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="112" value="E-Mail" style="rounded=0;whiteSpace=wrap;html=1;" parent="108" vertex="1">
+                    <mxGeometry x="560" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="111" value="Speichern" style="rounded=0;whiteSpace=wrap;html=1;" parent="108" vertex="1">
+                    <mxGeometry x="560" y="120" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="113" value="Neuer Immobilienbesitzer" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="2800" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="124" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="3120" width="760" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="126" value="Reinigungsjob" style="rounded=0;whiteSpace=wrap;html=1;" parent="124" vertex="1">
+                    <mxGeometry x="40" y="120" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="127" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Reinigungsjob&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="124" vertex="1">
+                    <mxGeometry x="40" y="200" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="128" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Reinigungsjob&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="124" vertex="1">
+                    <mxGeometry x="40" y="160" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="131" value="Details" style="rounded=0;whiteSpace=wrap;html=1;" parent="124" vertex="1">
+                    <mxGeometry x="637" y="120" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="133" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Details&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="124" vertex="1">
+                    <mxGeometry x="637" y="160" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="135" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Details&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="124" vertex="1">
+                    <mxGeometry x="637" y="200" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="172" value="Suchen" style="rounded=0;whiteSpace=wrap;html=1;" parent="124" vertex="1">
+                    <mxGeometry x="558" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="147" value="Dashboard Reinigungskraft" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="3080" width="150" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="148" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="3480" width="760" height="520" as="geometry"/>
+                </mxCell>
+                <mxCell id="149" value="Suchen" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="558" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="150" value="Reinigungskraft" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="40" y="120" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="151" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Reinigungskraft&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="40" y="200" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="152" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Reinigungskraft&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="40" y="160" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="153" value="Neuer CleaningStaff" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="41" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="154" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="558" y="120" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="155" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="637" y="120" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="156" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="558" y="160" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="157" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="637" y="160" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="158" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="558" y="200" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="159" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="637" y="200" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="160" value="Suchen" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="558" y="280" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="161" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Immobilienbesitzer&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="40" y="360" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="162" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Immobilienbesitzer&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="40" y="440" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="163" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Immobilienbesitzer&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="40" y="400" width="519" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="164" value="Neuer Immobilienbesitzer" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="41" y="280" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="165" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="558" y="360" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="166" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="637" y="360" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="167" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="558" y="400" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="168" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="637" y="400" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="169" value="Bearbeiten" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="558" y="440" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="170" value="Löschen" style="rounded=0;whiteSpace=wrap;html=1;" parent="148" vertex="1">
+                    <mxGeometry x="637" y="440" width="81" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="171" value="Dashboard Immobilienbesitzer" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="3440" width="190" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="184" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="2120" width="760" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="185" value="Immobilienbesitzer" style="rounded=0;whiteSpace=wrap;html=1;" parent="184" vertex="1">
+                    <mxGeometry x="40" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="187" value="Speichern" style="rounded=0;whiteSpace=wrap;html=1;" parent="184" vertex="1">
+                    <mxGeometry x="560" y="200" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="188" value="Reinigungskraft" style="rounded=0;whiteSpace=wrap;html=1;" parent="184" vertex="1">
+                    <mxGeometry x="40" y="120" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="189" value="Zeitpunkt" style="rounded=0;whiteSpace=wrap;html=1;" parent="184" vertex="1">
+                    <mxGeometry x="40" y="200" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="191" value="Neuer Job" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="2080" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="192" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="4080" width="760" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="193" value="Neues Passwort" style="rounded=0;whiteSpace=wrap;html=1;" parent="192" vertex="1">
+                    <mxGeometry x="40" y="40" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="194" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Speichern&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="192" vertex="1">
+                    <mxGeometry x="520" y="160" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="195" value="Passwort wiederholen" style="rounded=0;whiteSpace=wrap;html=1;" parent="192" vertex="1">
+                    <mxGeometry x="40" y="80" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="200" value="Link -&amp;gt; Passwort setzen" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="4040" width="150" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="201" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="4400" width="760" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="202" value="E-Mail" style="rounded=0;whiteSpace=wrap;html=1;" parent="201" vertex="1">
+                    <mxGeometry x="40" y="40" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="203" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Login&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="201" vertex="1">
+                    <mxGeometry x="360" y="161" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="204" value="Passwort" style="rounded=0;whiteSpace=wrap;html=1;" parent="201" vertex="1">
+                    <mxGeometry x="40" y="80" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="206" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Passwort vergessen&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="201" vertex="1">
+                    <mxGeometry x="520" y="161" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="205" value="Login" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="4360" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="207" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="4720" width="760" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="208" value="Start" style="rounded=0;whiteSpace=wrap;html=1;" parent="207" vertex="1">
+                    <mxGeometry x="40" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="209" value="Stop" style="rounded=0;whiteSpace=wrap;html=1;" parent="207" vertex="1">
+                    <mxGeometry x="40" y="100" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="212" value="Reinigungsjob" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="4680" width="90" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

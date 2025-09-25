@@ -5,21 +5,23 @@
 ### Team-Aufgaben
 Konzept und programmiertechnische Umsetzung aller Authentifizierung- und Autorisierung-Cases
 - Rollen
-- Registrierung
+- Verwaltung
 - Login
 
 ### Rollen
 |Name EN|Name DE|Berechtigungen|
 |---|---|---|
-|appAdmin|appAdmin|- verwaltet ReinigungsAdmins<br>- Zugriff auf alle Daten|
-|cleaningAdmin|reinigungsAdmin|- verwaltet ReinigungsMitarbeiter<br>- verwaltet ReinigungsKunden|
-|claeaningStaff|reinigungskraft|- verwalten von seinen Aufträgen|
-|buildingOwner|immobilienBesitzer|- nur Ansicht|
+|appAdmin|AppAdmin|- verwaltet ReinigungsAdmins<br>- Zugriff auf alle Daten|
+|cleaningAdmin|ReinigungsAdmin|- verwaltet ReinigungsMitarbeiter<br>- verwaltet ReinigungsKunden|
+|cleaningStaff|Reinigungskraft|- verwalten von seinen Aufträgen|
+|buildingOwner|Immobilienbesitzer|- nur Ansicht|
 
 ### Views
-- Registrierung
+
+- Passwort-Änderung
 - Login
 - appAdmin-Dashboard
+- Firma anlegen/ändern
 - reinigungsAdmin-Dashboard
 - reinigungskraft-Dashboard
 - buildingOwner-Dashboard
@@ -29,7 +31,6 @@ Konzept und programmiertechnische Umsetzung aller Authentifizierung- und Autoris
 - Personen
     - email (unique)
     - passwort (hash)
-    - salt?
     - roleId
     - companyId
 - Rollen
@@ -81,6 +82,5 @@ Konzept und programmiertechnische Umsetzung aller Authentifizierung- und Autoris
 ---
 
 ### Sonstiges
-- Verwendung von Identity
-- optional: Pepper zum Hash hinzufügen
-- IP-Adresse, Datum und Browser
+- Verwendung von Identity (CookieAuth)
+- Passworthasher
