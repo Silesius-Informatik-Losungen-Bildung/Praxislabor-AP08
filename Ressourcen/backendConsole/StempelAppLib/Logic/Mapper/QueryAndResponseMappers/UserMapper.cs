@@ -16,21 +16,5 @@ namespace StempelAppLib.Logic.Mapper.QueryAndResponseMappers
 
             return query;
         }
-
-        public BasePaginationResponse ToResponse(BasePaginationRequest request)
-        {
-            var response = new BasePaginationResponse()
-            {
-                PageNumber = request.PageNumber,
-                PageSize = request.PageSize,
-                SortBy = request.SortBy,
-                IsAscending = request.IsAscending,
-                SearchTerm = request.SearchTerm,
-            };
-
-            return response;
-        }
-
-
     }
 }

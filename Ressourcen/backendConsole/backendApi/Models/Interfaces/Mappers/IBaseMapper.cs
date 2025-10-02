@@ -7,6 +7,5 @@ namespace StempelAppCore.Models.Interfaces.Mappers
     public interface IBaseMapper
     {
         BaseQuery ToQuery(BaseEntityRequest request);
-        BasePaginationResponse ToResponse(BasePaginationRequest request);
     }
 }
