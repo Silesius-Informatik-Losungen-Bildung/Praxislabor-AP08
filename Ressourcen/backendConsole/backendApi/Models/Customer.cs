@@ -7,5 +7,6 @@
         public ContactInfo ContactInfo { get; set; }
         public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
         public virtual ICollection<Project> Projects { get; set; } = new List<Project>();
+        public virtual ICollection<Assignment> Assignments { get; set; } = new List<Assignment>();
     }
 }

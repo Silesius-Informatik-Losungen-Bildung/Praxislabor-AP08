@@ -1,10 +1,9 @@
-﻿namespace StempelAppCore.Models.DTOs
+﻿namespace StempelAppCore.Models.Responses
 {
-    public class AssignmentCreateQuery : BaseQuery
+    public class AssignmentGetResponse : BaseResponse
     {
-        public int? UserId { get; set; }
-        public double? GPSLongitude { get; set; }
-        public double? GPSLatitude { get; set; }
+        public int UserId { get; set; }
+        public LocationData Location { get; set; }
         public string? Comment { get; set; }
         public byte[]? Picture { get; set; }
         public DateTime? TimeStamp { get; set; }

@@ -1,4 +1,5 @@
-﻿using StempelAppCore.Models.DTOs;
+﻿using StempelAppCore.Models;
+using StempelAppCore.Models.DTOs;
 using StempelAppCore.Models.Interfaces.Mappers;
 using StempelAppCore.Models.Requests;
 using StempelAppCore.Models.Responses;
@@ -21,5 +22,22 @@ namespace StempelAppLib.Logic.Mapper.QueryAndResponseMappers
 
             return query;
         }
+
+        public BaseResponse ToBaseResponse(BaseEntity entity)
+        {
+            var response = new BaseResponse()
+            {
+                AuthUserId = entity.AuthUserId,
+                PageNumber = entity.PageNumber,
+                PageSize = entity.PageSize,
+                SearchTerm = entity.SearchTerm,
+                SortBy = entity.SortBy,
+                IsAscending = entity.IsAscending,
+            };
+
+            return response;
+        }
+
+
     }
 }

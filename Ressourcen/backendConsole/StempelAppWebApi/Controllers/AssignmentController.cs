@@ -10,7 +10,7 @@ namespace StempelAppWebApi.Controllers
         private readonly ILogger<AssignmentController> _logger;
 
         [HttpGet]
-        public IEnumerable<Assignment> Get()
+        public ActionResult<IEnumerable<Assignment>> Get()
         {
             var assignment1 = new Assignment()
             {
@@ -67,7 +67,7 @@ namespace StempelAppWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Assignment>> Add(/*AssignmentAddRequest request*/)
+        public async Task<ActionResult<Assignment>> Add()
         {
             // validate request
             // map to query

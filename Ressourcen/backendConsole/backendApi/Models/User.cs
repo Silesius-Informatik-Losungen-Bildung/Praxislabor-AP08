@@ -2,7 +2,7 @@
 {
     public partial class User : BaseEntity
     {
-        public Guid UserGuid { get; set; }
+        public Guid UserGuid { get; set; } = new Guid();
         public int UserTypeId { get; set; }
         public UserType UserType
         {
@@ -17,6 +17,7 @@
         public DateTime CreatedOnUtc { get; set; }
         public DateTime? LastLoginDateUtc { get; set; }
         public DateTime? LastActivityDateUtc { get; set; }
+        public List<Project> Projects { get; set; }
         public virtual ContactInfo ContactInfoNav { get; set; }
 }
 }

@@ -3,8 +3,7 @@
     public class AssignmentCreateRequest : BaseRequest
     {
         public int? UserId { get; set; }
-        public double? GPSLongitude { get; set; }
-        public double? GPSLatitude { get; set; }
+        public LocationData Location { get; set; }
         public string? Comment { get; set; }
         public byte[]? Picture { get; set; }
         public DateTime? TimeStamp { get; set; }

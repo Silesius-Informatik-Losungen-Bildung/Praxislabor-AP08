@@ -1,6 +1,6 @@
 ﻿namespace StempelAppCore.Models.Responses
 {
-    public class BaseResponse : BaseResponseId
+    public class BaseResponse
     {
         /// <summary>
         /// Current page number (starting from 1)
