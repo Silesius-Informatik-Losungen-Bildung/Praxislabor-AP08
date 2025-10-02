@@ -27,15 +27,24 @@ Konzept und programmiertechnische Umsetzung aller Authentifizierung- und Autoris
 - buildingOwner-Dashboard
 
 
-### Benötigte Tabellen/Spalten
-- Personen
+### Tabellen/Spalten für CyberGuarians relevant
+- Personen/users
     - email (unique)
-    - passwort (hash)
-    - roleId
-    - companyId
-- Rollen
+    - password_hash
+    - role_id
+    - company_id
+- Rollen/roles
     - roleId
     - roleName
+- Firmen/companies
+    - companyId
+    - companyName
+    - ...
+    - street
+    - postalCode
+    - city
+    - country
+    - ...
 
 ---
 
