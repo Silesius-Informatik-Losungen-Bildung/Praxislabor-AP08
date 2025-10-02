@@ -22,7 +22,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=StempelApp}/{action=Login}");
+    pattern: "{controller=Account}/{action=Login}");
 
 using (var scope = app.Services.CreateScope())
 {
