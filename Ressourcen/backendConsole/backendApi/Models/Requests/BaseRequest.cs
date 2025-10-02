@@ -1,7 +1,12 @@
-﻿namespace StempelAppCore.Models.Responses
+﻿namespace StempelAppCore.Models.Requests
 {
-    public class BasePaginationResponse
+    public class BaseRequest : BaseRequestId
     {
+        /// <summary>
+        /// Id of the already-authorised user making the request for query purposes
+        /// </summary>
+        public int AuthUserId { get; set; }
+
         /// <summary>
         /// Current page number (starting from 1)
         /// </summary>

@@ -6,6 +6,7 @@ namespace StempelAppCore.Models.Interfaces.Mappers
 {
     public interface IBaseMapper
     {
-        BaseQuery ToQuery(BaseEntityRequest request);
+        BaseQuery ToBaseQuery(BaseRequest request);
+        BaseResponse ToBaseResponse(BaseResponse response);
     }
 }

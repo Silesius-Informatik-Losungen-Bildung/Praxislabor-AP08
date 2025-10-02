@@ -1,6 +1,6 @@
 ﻿namespace StempelAppCore.Models.Responses
 {
-    public class AssignmentAddResponse : BaseEntityResponse
+    public class AssignmentCreateResponse : BaseResponse
     {
         public int UserId { get; set; }
         public double GPSLongitude { get; set; }

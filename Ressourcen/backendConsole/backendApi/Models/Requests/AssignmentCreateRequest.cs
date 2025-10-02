@@ -1,6 +1,6 @@
 ﻿namespace StempelAppCore.Models.Requests
 {
-    public class AssignmentAddRequest : BaseEntityRequest
+    public class AssignmentCreateRequest : BaseRequest
     {
         public int? UserId { get; set; }
         public double? GPSLongitude { get; set; }

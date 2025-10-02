@@ -1,6 +1,6 @@
-﻿namespace StempelAppCore.Models.Requests
+﻿namespace StempelAppCore.Models.Responses
 {
-    public class BasePaginationRequest : BaseEntityRequest
+    public class BaseResponse : BaseResponseId
     {
         /// <summary>
         /// Current page number (starting from 1)

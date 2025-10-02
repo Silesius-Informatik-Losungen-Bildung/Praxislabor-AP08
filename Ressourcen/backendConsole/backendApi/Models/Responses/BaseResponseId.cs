@@ -1,6 +1,6 @@
 ﻿namespace StempelAppCore.Models.Responses
 {
-    public class BaseEntityResponse
+    public class BaseResponseId
     {
         /// <summary>
         /// Id of the already-authorised user receiving the response
