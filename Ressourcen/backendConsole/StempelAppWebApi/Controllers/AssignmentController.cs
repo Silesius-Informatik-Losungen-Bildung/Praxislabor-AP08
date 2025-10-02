@@ -67,7 +67,7 @@ namespace StempelAppWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Assignment>> Add(/*AssignmentDoneRequest request*/)
+        public async Task<ActionResult<Assignment>> Add(/*AssignmentAddRequest request*/)
         {
             // validate request
             // map to query

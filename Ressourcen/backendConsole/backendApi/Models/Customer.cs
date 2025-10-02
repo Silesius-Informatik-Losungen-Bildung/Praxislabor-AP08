@@ -4,7 +4,8 @@
     {
         public UserType UserType { get; set; }
         public int UserId { get; set; }
-        public ICollection<Address> AddressList { get; set; }
+        public ContactInfo ContactInfo { get; set; }
+        public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
         public virtual ICollection<Project> Projects { get; set; } = new List<Project>();
     }
 }

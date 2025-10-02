@@ -2,9 +2,10 @@
 {
     public interface IUserService
     {
-        Task<User> CreateNewUser();
-        Task<User> GetUser();
-        Task<User> UpdateUser();
-        Task<User> DeleteUser();
+        Task<User> CreateNewUserAsync();
+        Task<User> GetUserAsync();
+        Task<IEnumerable<User>> GetUsersAsync();
+        Task<User> UpdateUserAsync();
+        Task<User> DeleteUserAsync();
     }
 }
