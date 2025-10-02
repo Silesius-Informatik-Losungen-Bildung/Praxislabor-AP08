@@ -29,6 +29,17 @@
         };
     }
 
+    // Kommentarfeld ein-/ausblenden
+    function ende() {
+        const radioNichtErledigt = document.getElementById('radioNichtErledigt');
+        const kommentarField = document.getElementById('kommentarField');
+        if (radioNichtErledigt.checked) {
+            kommentarField.style.display = 'block';
+        } else {
+            kommentarField.style.display = 'none';
+        }
+    }
+
     // Stoppuhr
     const anzeige = document.getElementById("zeiterfassung");
     if (anzeige) {

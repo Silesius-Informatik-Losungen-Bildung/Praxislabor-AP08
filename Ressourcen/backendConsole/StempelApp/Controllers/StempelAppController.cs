@@ -1,23 +1,16 @@
-﻿using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StempelApp.Viewmodels;
 using StempelAppCore.Data;
 
-namespace StempelApp.WebControllers
+namespace StempelApp.Controllers
 {
-    public class StempelAppController : Controller
+    public class StempelAppController(ILogger<StempelAppController> logger, StempelAppContext context) : Controller
     {
-        private readonly ILogger<StempelAppController> _logger;
-        private readonly StempelAppContext _context;
+        private readonly ILogger<StempelAppController> _logger = logger;
+        private readonly StempelAppContext _context = context;
 
-        public StempelAppController(ILogger<StempelAppController> logger, StempelAppContext context)
-        {
-            _logger = logger;
-            _context = context;
-        }
-
+        [HttpGet]
         public IActionResult UserHomepage(string userEmail)
         {
             if (string.IsNullOrEmpty(userEmail))
@@ -34,12 +27,14 @@ namespace StempelApp.WebControllers
                 {
                     CustomerName = p.CustomerName,
                     Address = p.Address.StreetHouseNr + ", " + p.Address.City,
-                    StartTime = p.StartTime
+                    StartTime = p.StartTime,
+                    Activities = p.Activities.ToList()
                 })
                 .ToList();
 
-            var viewModel = new UserHomepageViewModel
+            var viewModel = new UserViewModel
             {
+                UserEmail = userEmail,
                 Projects = projects
             };
 
@@ -58,8 +53,8 @@ namespace StempelApp.WebControllers
             if (!ModelState.IsValid)
                 return View(model);
 
-                        var user = _context.Users.Include(c=> c.ContactInfo)
-                .FirstOrDefault(u => u.ContactInfo.Email == model.UserEmail && u.PasswordHash == model.Password);
+            var user = _context.Users.Include(c => c.ContactInfo)
+            .FirstOrDefault(u => u.ContactInfo.Email == model.UserEmail && u.PasswordHash == model.Password);
 
             if (user == null)
             {
@@ -67,13 +62,34 @@ namespace StempelApp.WebControllers
                 return View(model);
             }
 
-            // Weiterleitung mit Übergabe der E-Mail als Parameter
             return RedirectToAction("UserHomepage", "StempelApp", new { userEmail = user.ContactInfo.Email });
         }
 
-        public IActionResult AufgabenListe()
+        public IActionResult WorkList(string userEmail)
         {
-            return View();
+            if (string.IsNullOrEmpty(userEmail))
+                return RedirectToAction("Login", "StempelApp");
+
+            var user = _context.Users.Include(c => c.ContactInfo)
+                .FirstOrDefault(u => u.ContactInfo.Email == userEmail);
+            if (user == null)
+                return RedirectToAction("Login", "StempelApp");
+
+            var projects = _context.Projects
+                .Where(p => p.CleaningPersonnel.Any(u => u.Id == user.Id))
+                .Select(p => new ProjectInfo
+                {
+                    Activities = p.Activities.ToList()
+                })
+                .ToList();
+
+            var viewModel = new UserViewModel
+            {
+                Projects = projects
+            };
+
+            return View(viewModel);
         }
+
     }
 }

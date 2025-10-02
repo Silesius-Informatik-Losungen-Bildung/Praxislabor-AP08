@@ -22,7 +22,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=StempelApp}/{action=UserHomepage}");
+    pattern: "{controller=StempelApp}/{action=Login}");
 
 using (var scope = app.Services.CreateScope())
 {
@@ -51,7 +51,8 @@ using (var scope = app.Services.CreateScope())
             CustomerName = "Musterprojekt",
             Address = address,
             StartTime = new DateTime(2023, 10, 10, 06,00,00),
-            CleaningPersonnel = new List<User> { context.Users.First(u => u.Username == "admin") }
+            CleaningPersonnel = new List<User> { context.Users.First(u => u.Username == "admin") },
+            Activities = new List<string> { "Büroreinigung", "Fenster putzen" }
         };
         context.Projects.Add(project);
         context.SaveChanges();
