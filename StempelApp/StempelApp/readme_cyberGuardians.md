@@ -84,3 +84,7 @@ Konzept und programmiertechnische Umsetzung aller Authentifizierung- und Autoris
 ### Sonstiges
 - Verwendung von Identity (CookieAuth)
 - Passworthasher
+
+## Skizze
+
+![Skizze](docs/Views.svg)
