@@ -6,6 +6,11 @@ namespace StempelApp
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            var sqlSilesius = Environment.GetEnvironmentVariable("SqlSilesius", EnvironmentVariableTarget.User);   // Instanzname mit Port
+            var sqlSilesiusAp08User = Environment.GetEnvironmentVariable("SqlSilesiusAp08User", EnvironmentVariableTarget.User);  // User ID - wie bekanntgegeben
+            var sqlSilesiusAp08Pwd = Environment.GetEnvironmentVariable("SqlSilesiusAp08Pwd", EnvironmentVariableTarget.User); // PWD, wie bekanntgegeben
+            buider.Services.UseSqlServer($"Password={sqlSilesiusAp08Pwd};Persist Security Info=True;User ID={sqlSilesiusAp08User};Initial Catalog=StempelApp;Data Source={sqlSilesius};TrustServerCertificate=True;");
+
 
             builder.Services.AddAuthentication("CookieAuth")
                 .AddCookie("CookieAuth", options =>
@@ -14,7 +19,7 @@ namespace StempelApp
                 });
 
             builder.Services.AddAuthorization();
-            // Add services to the container.
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
