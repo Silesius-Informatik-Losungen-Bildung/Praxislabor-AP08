@@ -1,4 +1,4 @@
-﻿namespace StempelAppCore.Models
+﻿namespace StempelAppCore.Models.Domain
 {
     public partial class Customer : BaseEntity
     {
@@ -7,6 +7,6 @@
         public ContactInfo ContactInfo { get; set; }
         public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
         public virtual ICollection<Project> Projects { get; set; } = new List<Project>();
-        public virtual ICollection<Assignment> Assignments { get; set; } = new List<Assignment>();
+        public virtual ICollection<UserAssignment> Assignments { get; set; } = new List<UserAssignment>();
     }
 }

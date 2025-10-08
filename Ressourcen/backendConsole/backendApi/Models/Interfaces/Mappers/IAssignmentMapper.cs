@@ -1,13 +1,14 @@
-﻿using StempelAppCore.Models.Requests;
-using StempelAppCore.Models.Responses;
+﻿using StempelAppCore.Models.Domain;
+using StempelAppCore.Models.Requests.Assignment;
+using StempelAppCore.Models.Responses.Assignment;
 
 namespace StempelAppCore.Models.Interfaces.Mappers
 {
-    public interface IAssignmentMapper : IBaseMapper
+    public interface IAssignmentMapper
     {
-        AssignmentCreateResponse ToCreateResponse(Assignment assignment);
-        AssignmentGetResponse ToGetResponse(Assignment assignment);
-        AssignmentListResponse ToListResponse(IEnumerable<Assignment> assignment, AssignmentListRequest request);
-        AssignmentUpdateResponse ToUpdateResponse(Assignment assignment);
+        AssignmentCreateResponse ToCreateResponse(UserAssignment assignment);
+        AssignmentGetResponse ToGetResponse(UserAssignment? assignment);
+        AssignmentListResponse ToListResponse(IEnumerable<UserAssignment?> assignments, AssignmentListRequest request);
+        AssignmentUpdateResponse ToUpdateResponse(UserAssignment assignment);
     }
 }

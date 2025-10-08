@@ -1,8 +1,9 @@
-﻿namespace StempelAppCore.Models
+﻿using StempelAppCore.Models.Domain;
+
+namespace StempelAppCore.Models.Requests.User
 {
-    public partial class User : BaseEntity
+    public class UserCreateRequest : BaseRequest
     {
-        public Guid UserGuid { get; set; } = new Guid();
         public int UserTypeId { get; set; }
         public UserType UserType
         {
@@ -14,10 +15,7 @@
         public string Username { get; set; }
         public string PasswordHash { get; set; }
         public ContactInfo ContactInfo { get; set; }
-        public DateTime CreatedOnUtc { get; set; }
-        public DateTime? LastLoginDateUtc { get; set; }
-        public DateTime? LastActivityDateUtc { get; set; }
-        public List<Project> Projects { get; set; }
-        public virtual ContactInfo ContactInfoNav { get; set; }
-}
+        public DateTime CreatedOnUtc { get; set; } = DateTime.UtcNow;
+        public List<Project>? Projects { get; set; }
+    }
 }

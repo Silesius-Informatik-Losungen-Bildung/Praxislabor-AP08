@@ -1,4 +1,4 @@
-﻿namespace StempelAppCore.Models
+﻿namespace StempelAppCore.Models.Domain
 {
     public partial class Project : BaseEntity
     {
@@ -11,6 +11,6 @@
         public TimeSpan? PlannedTime { get; set; }
         public virtual ContactInfo ContactInfo { get; set; }
         public virtual Customer Customer { get; set; }
-        public virtual ICollection<User> CleaningPersonnel { get; set; } = new List<User>();
+        public virtual ICollection<AppUser> CleaningPersonnel { get; set; } = new List<AppUser>();
     }
 }

@@ -1,4 +1,4 @@
-﻿using StempelAppCore.Models;
+﻿using StempelAppCore.Models.Domain;
 using StempelAppCore.Models.Interfaces;
 
 namespace StempelAppLib.Services

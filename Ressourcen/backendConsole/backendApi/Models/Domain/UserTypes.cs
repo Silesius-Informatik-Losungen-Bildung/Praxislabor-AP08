@@ -1,4 +1,4 @@
-﻿namespace StempelAppCore.Models
+﻿namespace StempelAppCore.Models.Domain
 {
     public enum UserType
     {

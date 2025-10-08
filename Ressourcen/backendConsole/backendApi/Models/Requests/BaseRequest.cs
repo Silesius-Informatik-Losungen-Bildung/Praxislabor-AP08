@@ -1,9 +1,9 @@
 ﻿namespace StempelAppCore.Models.Requests
 {
-    public class BaseRequest : BaseRequestId
+    public class BaseRequest
     {
         /// <summary>
-        /// Id of the already-authorised user making the request for query purposes
+        /// Id of the already-authorised User making the request for query purposes
         /// </summary>
         public int AuthUserId { get; set; }
 

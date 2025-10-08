@@ -2,6 +2,9 @@
 {
     public class BaseResponse
     {
+        public string? Message { get; set; }
+        public bool IsSuccess { get; set; }
+
         /// <summary>
         /// Current page number (starting from 1)
         /// </summary>

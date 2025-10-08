@@ -1,11 +1,13 @@
-﻿namespace StempelAppCore.Models.Interfaces
+﻿using StempelAppCore.Models.Domain;
+
+namespace StempelAppCore.Models.Interfaces
 {
     public interface IAssignmentService
     {
-        Task<Assignment> CreateNewAssignmentAsync();
-        Task<Assignment> GetAssignmentAsync();
-        Task<IEnumerable<Assignment>> GetAssignmentsAsync();
-        Task<Assignment> UpdateAssignmentAsync();
-        Task<Assignment> DeleteAssignmentAsync();
+        Task<UserAssignment> CreateNewAssignmentAsync();
+        Task<UserAssignment> GetAssignmentAsync();
+        Task<IEnumerable<UserAssignment>> GetAssignmentsAsync();
+        Task<UserAssignment> UpdateAssignmentAsync();
+        Task<UserAssignment> DeleteAssignmentAsync();
     }
 }

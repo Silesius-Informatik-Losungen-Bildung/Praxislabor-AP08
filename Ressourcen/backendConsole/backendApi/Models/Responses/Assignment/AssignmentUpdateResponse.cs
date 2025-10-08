@@ -1,4 +1,4 @@
-﻿namespace StempelAppCore.Models.Responses
+﻿namespace StempelAppCore.Models.Responses.Assignment
 {
     public class AssignmentUpdateResponse : BaseResponse
     {

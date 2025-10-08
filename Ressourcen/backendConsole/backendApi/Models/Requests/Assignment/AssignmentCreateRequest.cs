@@ -1,8 +1,10 @@
-﻿namespace StempelAppCore.Models.Responses
+﻿using StempelAppCore.Models.Domain;
+
+namespace StempelAppCore.Models.Requests.Assignment
 {
-    public class AssignmentCreateResponse : BaseResponse
+    public class AssignmentCreateRequest : BaseRequest
     {
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public LocationData Location { get; set; }
         public string? Comment { get; set; }
         public byte[]? Picture { get; set; }

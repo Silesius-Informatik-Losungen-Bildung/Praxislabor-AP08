@@ -1,8 +1,8 @@
 ﻿using System.Data.Common;
 
-namespace StempelAppCore.Models
+namespace StempelAppCore.Models.Domain
 {
-    public partial class Assignment : BaseEntity
+    public partial class UserAssignment : BaseEntity
     {
         public int UserId { get; set; }
         public LocationData Location { get; set; }
@@ -12,6 +12,6 @@ namespace StempelAppCore.Models
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
         public TimeSpan? AssignmentDuration => EndTime - StartTime;
-        public virtual User User { get; set; }
+        public virtual AppUser User { get; set; }
     }
 }

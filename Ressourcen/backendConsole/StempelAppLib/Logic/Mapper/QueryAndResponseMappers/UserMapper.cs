@@ -1,43 +1,81 @@
-﻿using StempelAppCore.Models;
-using StempelAppCore.Models.DTOs;
+﻿using StempelAppCore.Models.Domain;
 using StempelAppCore.Models.Interfaces.Mappers;
-using StempelAppCore.Models.Requests;
-using StempelAppCore.Models.Responses;
+using StempelAppCore.Models.Requests.User;
+using StempelAppCore.Models.Responses.User;
+using StempelAppLib.Exceptions.MapperExceptions;
 
 namespace StempelAppLib.Logic.Mapper.QueryAndResponseMappers
 {
     public class UserMapper : IUserMapper
     {
-        public BaseQuery ToBaseQuery(BaseRequest request)
+        public UserCreateResponse ToCreateResponse(AppUser user)
         {
-            var query = new BaseQuery()
+            if (user == null) throw new UserMapperException($"Mapping failed. User null.");
+            var response = new UserCreateResponse()
             {
-                AuthUserId = request.AuthUserId,
-                PageNumber = request.PageNumber,
-                PageSize = request.PageSize,
-                SearchTerm = request.SearchTerm,
-                SortBy = request.SortBy,
-                IsAscending = request.IsAscending
-            };
-
-            return query;
-        }
-
-        public BaseResponse ToBaseResponse(BaseEntity entity)
-        {
-            var response = new BaseResponse()
-            {
-                AuthUserId = entity.AuthUserId,
-                PageNumber = entity.PageNumber,
-                PageSize = entity.PageSize,
-                SearchTerm = entity.SearchTerm,
-                SortBy = entity.SortBy,
-                IsAscending = entity.IsAscending,
+                UserGuid = user.UserGuid,
+                Username = user.Username,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                ContactInfo = user.ContactInfo,
+                PageNumber = user.PageNumber,
+                PageSize = user.PageSize,
+                SearchTerm = user.SearchTerm,
+                SortBy = user.SortBy,
+                IsAscending = user.IsAscending,
             };
 
             return response;
         }
 
+        public UserGetResponse ToGetResponse(AppUser? user)
+        {
+            if (user == null) throw new UserMapperException($"Mapping failed. User null.");
+            var response = new UserGetResponse()
+            {
+                UserGuid = user.UserGuid,
+                Username = user.Username,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                ContactInfo = user.ContactInfo,
+                PageNumber = user.PageNumber,
+                PageSize = user.PageSize,
+                SearchTerm = user.SearchTerm,
+                SortBy = user.SortBy,
+                IsAscending = user.IsAscending,
+            };
+            return response;
+        }
 
+        public UserListResponse ToListResponse(IEnumerable<AppUser?> users, UserListRequest request)
+        {
+            if (users == null) throw new UserMapperException($"Mapping failed. User list null.");
+            if (users.Any(u => u == null)) throw new UserMapperException($"Mapping failed. A user in the list is null.");
+            var response = new UserListResponse()
+            {
+                Users = users.ToList(),
+                SearchTerm = request.SearchTerm,
+                SortBy = request.SortBy,
+                IsAscending = request.IsAscending,
+                PageNumber = request.PageNumber,
+                PageSize = request.PageSize,
+            };
+            return response;
+        }
+
+        public UserUpdateResponse ToUpdateResponse(AppUser user)
+        {
+            if (user == null) throw new UserMapperException($"Mapping failed. User null.");
+            var response = new UserUpdateResponse()
+            {
+                PageNumber = user.PageNumber,
+                PageSize= user.PageSize,
+                IsAscending= user.IsAscending,
+                SearchTerm= user.SearchTerm,
+                SortBy = user.SortBy,
+            };
+
+            return response;
+        }
     }
 }

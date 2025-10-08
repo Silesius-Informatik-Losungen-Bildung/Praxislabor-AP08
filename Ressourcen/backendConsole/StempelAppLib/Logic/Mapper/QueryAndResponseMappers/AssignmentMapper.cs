@@ -1,29 +1,16 @@
-﻿using StempelAppCore.Models;
+﻿using StempelAppCore.Models.Domain;
 using StempelAppCore.Models.Interfaces.Mappers;
-using StempelAppCore.Models.Requests;
-using StempelAppCore.Models.Responses;
+using StempelAppCore.Models.Requests.Assignment;
+using StempelAppCore.Models.Responses.Assignment;
+using StempelAppLib.Exceptions.MapperExceptions;
 
 namespace StempelAppLib.Logic.Mapper.QueryAndResponseMappers
 {
     public class AssignmentMapper : IAssignmentMapper
     {
-
-        public BaseResponse ToBaseResponse(BaseEntity entity)
+        public AssignmentCreateResponse ToCreateResponse(UserAssignment assignment)
         {
-            var response = new BaseResponse()
-            {
-                PageNumber = entity.PageNumber,
-                PageSize = entity.PageSize,
-                SearchTerm = entity.SearchTerm,
-                SortBy = entity.SortBy,
-                IsAscending = entity.IsAscending,
-            };
-
-            return response;
-        }
-
-        public AssignmentCreateResponse ToCreateResponse(Assignment assignment)
-        {
+            if (assignment == null) throw new AssignmentMapperException($"Mapping failed. Assignment null.");
             var response = new AssignmentCreateResponse();
 
             response.PageNumber = assignment.PageNumber;
@@ -43,8 +30,9 @@ namespace StempelAppLib.Logic.Mapper.QueryAndResponseMappers
             return response;
         }
 
-        public AssignmentGetResponse ToGetResponse(Assignment assignment)
+        public AssignmentGetResponse ToGetResponse(UserAssignment? assignment)
         {
+            if (assignment == null) throw new AssignmentMapperException($"Mapping failed. Assignment null.");
             var response = new AssignmentGetResponse();
 
             response.PageNumber = assignment.PageNumber;
@@ -61,25 +49,30 @@ namespace StempelAppLib.Logic.Mapper.QueryAndResponseMappers
             if (assignment.StartTime != null) response.StartTime = assignment.StartTime;
             if (assignment.EndTime != null) response.EndTime = assignment.EndTime;
 
+
             return response;
         }
 
-        public AssignmentListResponse ToListResponse(IEnumerable<Assignment> assignments, AssignmentListRequest request)
+        public AssignmentListResponse ToListResponse(IEnumerable<UserAssignment?> assignments, AssignmentListRequest request)
         {
-            return new AssignmentListResponse()
+            if (assignments == null) throw new AssignmentMapperException($"Mapping failed. Assignments list null.");
+            if (assignments.Any(u => u == null)) throw new AssignmentMapperException($"Mapping failed. An assignment in the list is null.");
+            var response = new AssignmentListResponse();
+            if (assignments != null)
             {
-                Assignments = assignments.ToList(),
-                IsAscending = request.IsAscending,
-                PageNumber = request.PageNumber,
-                PageSize = request.PageSize,
-                SearchTerm = request.SearchTerm,
-                SortBy = request.SortBy,
-            };
-
+                response.Assignments = assignments.ToList();
+                response.IsAscending = request.IsAscending;
+                response.PageNumber = request.PageNumber;
+                response.PageSize = request.PageSize;
+                response.SearchTerm = request.SearchTerm;
+                response.SortBy = request.SortBy;
+            }
+            return response;
         }
 
-        public AssignmentUpdateResponse ToUpdateResponse(Assignment assignment)
+        public AssignmentUpdateResponse ToUpdateResponse(UserAssignment assignment)
         {
+            if (assignment == null) throw new AssignmentMapperException($"Mapping failed. Assignment null.");
             var response = new AssignmentUpdateResponse();
 
             response.PageSize = assignment.PageSize;

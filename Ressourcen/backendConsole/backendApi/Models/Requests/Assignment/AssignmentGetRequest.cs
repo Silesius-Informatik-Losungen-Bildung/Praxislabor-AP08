@@ -1,4 +1,4 @@
-﻿namespace StempelAppCore.Models.Requests
+﻿namespace StempelAppCore.Models.Requests.Assignment
 {
     public class AssignmentGetRequest : BaseRequest
     {
