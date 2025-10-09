@@ -7,8 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mapper\" />
-    <Folder Include="Logic\" />
+    <Folder Include="Exceptions\RepositoryExceptions\" />
+    <Folder Include="Logic\Helpers\" />
+    <Folder Include="Logic\Extensions\" />
+    <Folder Include="Logic\Mapper\ObjectMappers\" />
   </ItemGroup>
 
   <ItemGroup>

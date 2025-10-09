@@ -3,25 +3,29 @@ using StempelAppCore.Models.Interfaces;
 
 namespace StempelAppLib.Services
 {
-    public class UserService : IUserService
+    public class AssignmentService : IAssignmentService
     {
-        public Task<AppUser> CreateNewUserAsync()
+        public Task<UserAssignment> CreateNewAssignmentAsync()
         {
             throw new NotImplementedException();
         }
-        public Task<AppUser> GetUserAsync()
+
+        public Task<UserAssignment> DeleteAssignmentAsync()
         {
             throw new NotImplementedException();
         }
-        public Task<IEnumerable<AppUser>> GetUsersAsync()
+
+        public Task<UserAssignment> GetAssignmentAsync()
         {
             throw new NotImplementedException();
         }
-        public Task<AppUser> UpdateUserAsync()
+
+        public Task<IEnumerable<UserAssignment>> GetAssignmentsAsync()
         {
             throw new NotImplementedException();
         }
-        public Task<AppUser> DeleteUserAsync()
+
+        public Task<UserAssignment> UpdateAssignmentAsync()
         {
             throw new NotImplementedException();
         }

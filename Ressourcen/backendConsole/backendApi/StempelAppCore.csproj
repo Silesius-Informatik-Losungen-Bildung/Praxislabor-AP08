@@ -6,5 +6,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\Requests\User\**" />
+    <EmbeddedResource Remove="Models\Requests\User\**" />
+    <None Remove="Models\Requests\User\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Models\Requests\User\UserCreateRequest.cs" />
+    <Compile Include="Models\Requests\User\UserListRequest.cs" />
+    <Compile Include="Models\Requests\User\UserGetRequest.cs" />
+    <Compile Include="Models\Requests\User\UserUpdateRequest.cs" />
+  </ItemGroup>
 	
 </Project>
