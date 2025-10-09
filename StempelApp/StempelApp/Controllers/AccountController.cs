@@ -15,13 +15,11 @@ namespace StempelApp.Controllers
         public AccountController() 
         {
         }
-        public IActionResult Register()
-        {
-            return View();
-        }
+
         public IActionResult Login()
         {
             return View();
         }
+
     }
 }

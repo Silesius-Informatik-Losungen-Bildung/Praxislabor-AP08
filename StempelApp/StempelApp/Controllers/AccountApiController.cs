@@ -3,25 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StempelApp.Controllers
 {
-    public class AccountController : ControllerBase
+    public class AccountApiController : ControllerBase
     {
-        // TODO:
-        // change names of dbContext and User Model
-        // private readonly RegisterLoginDbContext _context;
-        //private readonly IPasswordHasher<Benutzer> _hasher;
 
-        // TODO:
-        // DI of _context and _hasher
-        public AccountController() 
+        public AccountApiController() 
         {
         }
-        public IActionResult Register()
-        {
-            //return Ok;
-        }
-        public IActionResult Login()
-        {
-            //return Ok;
-        }
+
     }
 }

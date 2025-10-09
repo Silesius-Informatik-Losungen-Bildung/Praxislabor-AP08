@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using StempelApp.Data;
+
 namespace StempelApp
 {
     public class Program
@@ -6,21 +10,27 @@ namespace StempelApp
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            var sqlSilesius = Environment.GetEnvironmentVariable("SqlSilesius", EnvironmentVariableTarget.User);   // Instanzname mit Port
-            var sqlSilesiusAp08User = Environment.GetEnvironmentVariable("SqlSilesiusAp08User", EnvironmentVariableTarget.User);  // User ID - wie bekanntgegeben
-            var sqlSilesiusAp08Pwd = Environment.GetEnvironmentVariable("SqlSilesiusAp08Pwd", EnvironmentVariableTarget.User); // PWD, wie bekanntgegeben
-            buider.Services.UseSqlServer($"Password={sqlSilesiusAp08Pwd};Persist Security Info=True;User ID={sqlSilesiusAp08User};Initial Catalog=StempelApp;Data Source={sqlSilesius};TrustServerCertificate=True;");
+            var sqlSilesius = Environment.GetEnvironmentVariable("SqlSilesius", EnvironmentVariableTarget.User);
+            var sqlSilesiusAp08User = Environment.GetEnvironmentVariable("SqlSilesiusAp08User", EnvironmentVariableTarget.User);
+            var sqlSilesiusAp08Pwd = Environment.GetEnvironmentVariable("SqlSilesiusAp08Pwd", EnvironmentVariableTarget.User);
 
+            builder.Services.AddDbContext<StempelAppDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+                .Replace("@SqlSilesius", sqlSilesius)
+                .Replace("@sqlSilesiusAp08User", sqlSilesiusAp08User)
+                .Replace("@sqlSilesiusAp08Pwd", sqlSilesiusAp08Pwd)
+                ));
 
             builder.Services.AddAuthentication("CookieAuth")
                 .AddCookie("CookieAuth", options =>
                 {
                     options.LoginPath = "/Account/Login";
                 });
-
             builder.Services.AddAuthorization();
 
+
             builder.Services.AddControllersWithViews();
+            //builder.Services.AddScoped<IPasswordHasher<Benutzer>, PasswordHasher<Benutzer>>();
 
             var app = builder.Build();
 
@@ -36,9 +46,7 @@ namespace StempelApp
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.MapDefaultControllerRoute();
 
             app.Run();
         }
