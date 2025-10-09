@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace StempelApp.Controllers
 {
-    public class AccountController : Controller
+    public class LoginController : Controller
     {
         // TODO:
         // change names of dbContext and User Model
@@ -12,11 +11,11 @@ namespace StempelApp.Controllers
 
         // TODO:
         // DI of _context and _hasher
-        public AccountController() 
+        public LoginController() 
         {
         }
 
-        public IActionResult Login()
+        public IActionResult Index()
         {
             return View();
         }
