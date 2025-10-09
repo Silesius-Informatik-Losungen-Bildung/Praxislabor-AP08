@@ -7,7 +7,7 @@ namespace StempelAppCore.Data
     {
         public StempelAppContext() { }
         public StempelAppContext(DbContextOptions<StempelAppContext> options) : base(options) { }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<AppUser> Users { get; set; }
         public virtual DbSet<UserAssignment> Assignments { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }

@@ -5,23 +5,23 @@ namespace StempelAppLib.Services
 {
     public class UserService : IUserService
     {
-        public Task<User> CreateNewUserAsync()
+        public Task<AppUser> CreateNewUserAsync()
         {
             throw new NotImplementedException();
         }
-        public Task<User> GetUserAsync()
+        public Task<AppUser> GetUserAsync()
         {
             throw new NotImplementedException();
         }
-        public Task<IEnumerable<User>> GetUsersAsync()
+        public Task<IEnumerable<AppUser>> GetUsersAsync()
         {
             throw new NotImplementedException();
         }
-        public Task<User> UpdateUserAsync()
+        public Task<AppUser> UpdateUserAsync()
         {
             throw new NotImplementedException();
         }
-        public Task<User> DeleteUserAsync()
+        public Task<AppUser> DeleteUserAsync()
         {
             throw new NotImplementedException();
         }
