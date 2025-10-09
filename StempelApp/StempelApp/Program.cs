@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StempelApp.Data;
 
@@ -14,12 +13,13 @@ namespace StempelApp
             var sqlSilesiusAp08User = Environment.GetEnvironmentVariable("SqlSilesiusAp08User", EnvironmentVariableTarget.User);
             var sqlSilesiusAp08Pwd = Environment.GetEnvironmentVariable("SqlSilesiusAp08Pwd", EnvironmentVariableTarget.User);
 
-            builder.Services.AddDbContext<StempelAppDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+            var connstr = builder.Configuration.GetConnectionString("default")
                 .Replace("@SqlSilesius", sqlSilesius)
-                .Replace("@sqlSilesiusAp08User", sqlSilesiusAp08User)
-                .Replace("@sqlSilesiusAp08Pwd", sqlSilesiusAp08Pwd)
-                ));
+                .Replace("@Ap08User", sqlSilesiusAp08User)
+                .Replace("@Ap08Pwd", sqlSilesiusAp08Pwd);
+            builder.Services.AddDbContext<StempelAppDbContext>(options =>
+                options.UseSqlServer(connstr)
+                );
 
             builder.Services.AddAuthentication("CookieAuth")
                 .AddCookie("CookieAuth", options =>
