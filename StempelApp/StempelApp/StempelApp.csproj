@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Ressourcen\backendConsole\backendApi\StempelAppCore.csproj" />
+    <ProjectReference Include="..\..\Ressourcen\backendConsole\ClassLibrary1\StempelAppData.csproj" />
+    <ProjectReference Include="..\..\Ressourcen\backendConsole\StempelAppLib\StempelAppLib.csproj" />
+  </ItemGroup>
+
 </Project>

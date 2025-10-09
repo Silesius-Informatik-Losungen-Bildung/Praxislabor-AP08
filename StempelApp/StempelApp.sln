@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelApp", "StempelApp\StempelApp.csproj", "{25DBD30F-6618-43E9-9E92-9CB910610A95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelAppCore", "..\Ressourcen\backendConsole\backendApi\StempelAppCore.csproj", "{02509A9E-BC20-DEC1-3255-F2920F6BCE49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelAppData", "..\Ressourcen\backendConsole\ClassLibrary1\StempelAppData.csproj", "{343BEEF6-F962-D80E-5228-8A9571F42C29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelAppLib", "..\Ressourcen\backendConsole\StempelAppLib\StempelAppLib.csproj", "{F051535D-649E-D224-34B4-58B9B795722F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelAppWebApi", "..\Ressourcen\backendConsole\StempelAppWebApi\StempelAppWebApi.csproj", "{19D54072-4274-4087-C634-847D12696004}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +23,27 @@ Global
 		{25DBD30F-6618-43E9-9E92-9CB910610A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25DBD30F-6618-43E9-9E92-9CB910610A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25DBD30F-6618-43E9-9E92-9CB910610A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02509A9E-BC20-DEC1-3255-F2920F6BCE49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02509A9E-BC20-DEC1-3255-F2920F6BCE49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02509A9E-BC20-DEC1-3255-F2920F6BCE49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02509A9E-BC20-DEC1-3255-F2920F6BCE49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{343BEEF6-F962-D80E-5228-8A9571F42C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{343BEEF6-F962-D80E-5228-8A9571F42C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{343BEEF6-F962-D80E-5228-8A9571F42C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{343BEEF6-F962-D80E-5228-8A9571F42C29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F051535D-649E-D224-34B4-58B9B795722F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F051535D-649E-D224-34B4-58B9B795722F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F051535D-649E-D224-34B4-58B9B795722F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F051535D-649E-D224-34B4-58B9B795722F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19D54072-4274-4087-C634-847D12696004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19D54072-4274-4087-C634-847D12696004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19D54072-4274-4087-C634-847D12696004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19D54072-4274-4087-C634-847D12696004}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0EF15507-9C58-4124-A8CB-8EF05527B84F}
 	EndGlobalSection
 EndGlobal
