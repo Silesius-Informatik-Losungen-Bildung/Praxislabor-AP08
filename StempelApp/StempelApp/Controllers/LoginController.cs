@@ -1,23 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StempelApp.Viewmodels;
 
 namespace StempelApp.Controllers
 {
     public class LoginController : Controller
     {
-        // TODO:
-        // change names of dbContext and User Model
-        // private readonly RegisterLoginDbContext _context;
-        //private readonly IPasswordHasher<Benutzer> _hasher;
+        private readonly HttpClient _httpClient;
 
-        // TODO:
-        // DI of _context and _hasher
-        public LoginController() 
+        public LoginController(IHttpClientFactory httpClientFactory)
         {
+            _httpClient = httpClientFactory.CreateClient("AccountApi");
         }
 
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(LoginViewModel loginViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(loginViewModel);
+            }
+            return View(); //todo
+
+
         }
 
     }

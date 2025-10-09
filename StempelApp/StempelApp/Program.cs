@@ -32,6 +32,11 @@ namespace StempelApp
             builder.Services.AddControllersWithViews();
             //builder.Services.AddScoped<IPasswordHasher<Benutzer>, PasswordHasher<Benutzer>>();
 
+            builder.Services.AddHttpClient("AccountApi", client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5136");
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
