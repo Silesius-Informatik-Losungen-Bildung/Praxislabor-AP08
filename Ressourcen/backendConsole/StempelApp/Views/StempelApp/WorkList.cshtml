@@ -9,8 +9,8 @@
     <div id="zeiterfassung" class="mb-4">00:00:00</div>
 
     <div class="buttons">
-        <button type="button" class="button is-family-primary is-medium" onclick="start()">Start</button>
-        <button type="button" class="button is-family-primary is-medium" onclick="pause()">Pause</button>
+        <button id="startBtn" type="button" class="button is-family-primary is-medium">Start</button>
+        <button id="stopBtn" type="button" class="button is-family-primary is-medium">Pause</button>
     </div>
 
     <div>
@@ -59,8 +59,9 @@
     </div>
 </section>
 
-<script>
-    
-</script>
+@section Scripts {
+    <script type="module" src="~/js/Gps.js"></script>
+    <script type="module" src="~/js/Timer.js"></script>
+}
 
 

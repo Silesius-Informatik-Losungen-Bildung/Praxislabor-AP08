@@ -37,6 +37,9 @@
                         <a class="navbar-item" asp-area="" asp-controller="StempelApp" asp-action="Login">
                             Login
                         </a>
+                        <a class="navbar-item" asp-area="" asp-controller="Dashboard" asp-action="Index">
+                            Dashboard
+                        </a>
                     </div>
                 </div>
             </div>
@@ -59,8 +62,9 @@
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/JsSite.js" asp-append-version="true"></script>
+    @* <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+    <script type="module" src="~/js/index.js"></script>
+    @* <script src="~/js/JsSite.js" asp-append-version="true"></script> *@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
