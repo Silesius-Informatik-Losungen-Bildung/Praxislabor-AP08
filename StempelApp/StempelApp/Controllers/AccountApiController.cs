@@ -3,12 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StempelApp.Controllers
 {
-    public class AccountApiController : ControllerBase
+    public class AccountApiController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IConfiguration configuration) : ControllerBase
     {
-
-        public AccountApiController() 
-        {
-        }
-
+        private readonly UserManager<IdentityUser> _userManager = userManager;
+        private readonly SignInManager<IdentityUser> _signInManager = signInManager;
+        private readonly IConfiguration _config = configuration;
     }
 }
