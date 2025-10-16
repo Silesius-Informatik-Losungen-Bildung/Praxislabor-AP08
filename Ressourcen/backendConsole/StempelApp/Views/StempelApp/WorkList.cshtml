@@ -1,11 +1,8 @@
 ﻿@model StempelApp.Viewmodels.UserViewModel
 
-
-
 <section class="section">
     <h1 class="title is-1 has-text-centered has-text-black">Aufgaben Liste</h1>
 
-    <!--GPS-Daten integrieren muss noch hinzugefügt werden-->
     <div id="zeiterfassung" class="mb-4">00:00:00</div>
 
     <div class="buttons">
@@ -15,43 +12,49 @@
 
     <div>
         <form asp-controller="Feedback" asp-action="Create" method="post" enctype="multipart/form-data">
-            @foreach(var project in Model.Projects)
+            @for (int i = 0; i < Model.Projects.Count; i++)
             {
-                <div class="field">
-                    <label class="label has-text-black">Aufgabe</label>
-                    <div class="control">
-                        <ul>
-                            @foreach(var activity in project.Activities)
-                            {
-                                <li>
-                                    @activity<br />
-                                    <label class="radio">
-                                        <input type="radio" name="Aufgabe_@activity" value="nicht erledigt" checked>
-                                        nicht erledigt
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="Aufgabe_@activity" value="erledigt">
-                                        erledigt
-                                    </label>
-                                    <div class="field">
-                                        <label class="label has-text-black">Datei hochladen</label>
-                                        <div id="file-js-example" class="file has-name is-fullwidth">
-                                            <label class="file-label">
-                                                <input class="file-input" type="file" name="resume_@activity">
-                                                <span class="file-cta">
-                                                    <span class="file-label">Choose a file…</span>
-                                                </span>
-                                                <span class="file-name">No file selected</span>
-                                            </label>
+                var project = Model.Projects[i];
+                for (int j = 0; j < project.Activities.Count; j++)
+                {
+                    var activity = project.Activities[j];
+                    <div class="accordion mb-4">
+                        <div class="accordion-header"
+                             style="display: flex; justify-content: space-between; cursor:pointer;"
+                             onclick="toggleAccordion('accordion-content-@i-@j')">
+                            <label>Aufgabe: @activity</label>
+                        </div>
+                        <div class="accordion-content" id="accordion-content-@i-@j" style="display:none;">
+                            <li class="field">
+                                <ul>
+                                    <li>
+                                        <label class="radio">
+                                            <input type="radio" name="Aufgabe_@activity" value="nicht erledigt" checked>
+                                            nicht erledigt
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="Aufgabe_@activity" value="erledigt">
+                                            erledigt
+                                        </label>
+                                        <div class="field">
+                                            <label class="label has-text-black">Datei hochladen</label>
+                                            <div id="file-js-example" class="file has-name is-fullwidth">
+                                                <label class="file-label">
+                                                    <input class="file-input" type="file" name="resume_@activity">
+                                                    <span class="file-cta">
+                                                        <span class="file-label">Choose a file…</span>
+                                                    </span>
+                                                    <span class="file-name">No file selected</span>
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            }
-                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </div>
                     </div>
-                </div>
+               }
             }
-            
         </form>
     </div>
     <div class="mt-4">
@@ -60,7 +63,14 @@
 </section>
 
 <script>
-    
+    function toggleAccordion(id) {
+        var content = document.getElementById(id);
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+        } else {
+            content.style.display = "none";
+        }
+    }
 </script>
 
 
