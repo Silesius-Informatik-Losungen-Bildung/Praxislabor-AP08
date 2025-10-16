@@ -20,10 +20,16 @@ namespace StempelApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model); 
+            }
+
             if (await TryAppAdminLogin(model.Email, model.Password))
             {
                 await SignInWithCookie(model.Email, "AppAdmin");
-                return Ok();
+                Console.WriteLine("Eingeloggt!");
+                return View("Login");
             }
 
             var result = await _signInManager.PasswordSignInAsync(
@@ -31,15 +37,18 @@ namespace StempelApp.Controllers
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Dashboard");
+                Console.WriteLine("Als User eingeloggt!");
+                return RedirectToAction("Index", "Home");
             }
 
-            return View(model);
+            ModelState.AddModelError("", "Ungültige Email oder Passwort");
+            Console.WriteLine("Passt nicht");
+            return View("Error");
         }
 
         private async Task<bool> TryAppAdminLogin(string username, string password)
         {
-            var superAdminEnabled = _config.GetValue<bool>("AppAdmin:Enabled");
+            var superAdminEnabled = _config.GetValue<bool>("AppAdmin:Enabled", true);
             if (!superAdminEnabled) return false;
 
             var configUsername = _config["AppAdmin:Username"];
