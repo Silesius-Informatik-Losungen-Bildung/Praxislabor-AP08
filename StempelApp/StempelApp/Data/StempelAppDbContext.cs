@@ -1,22 +1,43 @@
-﻿using Microsoft.EntityFrameworkCore;
-using StempelApp.Models;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace StempelApp.Data
 {
-    public class StempelAppDbContext : DbContext
+    public class StempelAppDbContext : IdentityDbContext
     {
-        public DbSet<Role> Roles { get; set; }
-
         public StempelAppDbContext(DbContextOptions<StempelAppDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Role>().HasData(
-                new Role { RoleId = 1, RoleName = "appAdmin" },
-                new Role { RoleId = 2, RoleName = "cleaningAdmin" },
-                new Role { RoleId = 3, RoleName = "cleaningStaff" },
-                new Role { RoleId = 4, RoleName = "buildingOwner" }
-            );
-        }
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole
+                {
+                    Id = "1",
+                    Name = "appAdmin",
+                    NormalizedName = "APPADMIN"
+                },
+                new IdentityRole
+                {
+                    Id = "2",
+                    Name = "cleaningAdmin",
+                    NormalizedName = "CLEANINGADMIN"
+                },
+                new IdentityRole
+                {
+                    Id = "3",
+                    Name = "cleaningStaff",
+                    NormalizedName = "CLEANINGSTAFF"
+                },
+                new IdentityRole
+                {
+                    Id = "4",
+                    Name = "buildingOwner",
+                    NormalizedName = "BUILDINGOWNER"
+                }
+                    );
+                }
     }
 }

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StempelApp.Data;
 
@@ -21,6 +22,10 @@ namespace StempelApp
                 options.UseSqlServer(connstr)
                 );
 
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<StempelAppDbContext>()
+                .AddDefaultTokenProviders();
+
             builder.Services.AddAuthentication("CookieAuth")
                 .AddCookie("CookieAuth", options =>
                 {
@@ -30,9 +35,18 @@ namespace StempelApp
                 });
             builder.Services.AddAuthorization();
 
+            builder.Services.Configure<IdentityOptions>(options =>
+            {
+                options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
+                options.Tokens.PasswordResetTokenProvider = TokenOptions.DefaultEmailProvider;
+                options.SignIn.RequireConfirmedEmail = true;
+                //options.Tokens.DefaultProvider = "Default";
+            });
+
+            builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
+                options.TokenLifespan = TimeSpan.FromHours(24));
 
             builder.Services.AddControllersWithViews();
-            //builder.Services.AddScoped<IPasswordHasher<Benutzer>, PasswordHasher<Benutzer>>();
 
             builder.Services.AddHttpClient("AccountApi", client =>
             {
