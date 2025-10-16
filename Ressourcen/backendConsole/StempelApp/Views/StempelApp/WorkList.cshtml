@@ -6,8 +6,7 @@
     <div id="zeiterfassung" class="mb-4">00:00:00</div>
 
     <div class="buttons">
-        <button type="button" class="button is-family-primary is-medium" onclick="start()">Start</button>
-        <button type="button" class="button is-family-primary is-medium" onclick="pause()">Pause</button>
+        <button id="toggleButton" type="button" onclick="toggleStartPause()">Start</button>
     </div>
 
     <div>
@@ -20,11 +19,10 @@
                     var activity = project.Activities[j];
                     <div class="accordion mb-4">
                         <div class="accordion-header"
-                             style="display: flex; justify-content: space-between; cursor:pointer;"
-                             onclick="toggleAccordion('accordion-content-@i-@j')">
+                             style="display: flex; justify-content: space-between; cursor:pointer;">
                             <label>Aufgabe: @activity</label>
                         </div>
-                        <div class="accordion-content" id="accordion-content-@i-@j" style="display:none;">
+                        <div class="accordion-content" id="accordion-content-@i-@j">
                             <li class="field">
                                 <ul>
                                     <li>
@@ -57,9 +55,7 @@
             }
         </form>
     </div>
-    <div class="mt-4">
-        <button type="button" class="button is-family-primary is-medium" onclick="ende()">Ende</button>
-    </div>
+   
 </section>
 
 <script>

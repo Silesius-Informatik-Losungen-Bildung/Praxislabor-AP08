@@ -1,4 +1,10 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const content = header.nextElementSibling;
+            content.classList.toggle('open');
+        });
+    });
     // Burger-Menü
     const burgers = document.querySelectorAll('.navbar-burger');
     burgers.forEach(burger => {
@@ -9,12 +15,6 @@
         });
     });
 
-    document.querySelectorAll('.accordion-header').forEach(header => {
-        header.addEventListener('click', () => {
-            const content = header.nextElementSibling;
-            content.classList.toggle('open');
-        });
-    });
 
     // File Input
     const fileInput = document.querySelector("#file-js-example input[type=file]");
@@ -42,40 +42,54 @@
 
     // Stoppuhr
     const anzeige = document.getElementById("zeiterfassung");
-    if (anzeige) {
-        let gestoppteZeit = 0;
-        let pausiert = true;
-        let letzterDurchlauf = Date.now();
+    let gestoppteZeit = 0;
+    let pausiert = true;
+    let letzterDurchlauf = Date.now();
+    let isRunning = false;
 
-        window.start = function () { pausiert = false; };
-        window.pause = function () { pausiert = true; };
-        window.ende = function () {
-            pausiert = true;
-            gestoppteZeit = 0;
-            aktualisiereAnzeige();
-        };
-
-        function aktuelleZeit() {
-            const jetzt = Date.now();
-            if (!pausiert) {
-                gestoppteZeit += jetzt - letzterDurchlauf;
-            }
-            letzterDurchlauf = jetzt;
-            aktualisiereAnzeige();
-            setTimeout(aktuelleZeit, 50);
-        }
-
-        function aktualisiereAnzeige() {
-            const sekunden = Math.floor((gestoppteZeit / 1000) % 60);
-            const minuten = Math.floor((gestoppteZeit / (1000 * 60)) % 60);
-            const stunden = Math.floor(gestoppteZeit / (1000 * 60 * 60));
-
-            anzeige.innerText =
-                String(stunden).padStart(2, '0') + ':' +
-                String(minuten).padStart(2, '0') + ':' +
-                String(sekunden).padStart(2, '0');
-        }
-
-        aktuelleZeit();
+    function aktualisiereAnzeige() {
+        const sekunden = Math.floor((gestoppteZeit / 1000) % 60);
+        const minuten = Math.floor((gestoppteZeit / (1000 * 60)) % 60);
+        const stunden = Math.floor(gestoppteZeit / (1000 * 60 * 60));
+        anzeige.innerText =
+            String(stunden).padStart(2, '0') + ':' +
+            String(minuten).padStart(2, '0') + ':' +
+            String(sekunden).padStart(2, '0');
     }
+
+    function aktuelleZeit() {
+        const jetzt = Date.now();
+        if (!pausiert) {
+            gestoppteZeit += jetzt - letzterDurchlauf;
+        }
+        letzterDurchlauf = jetzt;
+        aktualisiereAnzeige();
+        setTimeout(aktuelleZeit, 50);
+    }
+
+    aktuelleZeit();
+
+    window.toggleStartPause = function () {
+        const btn = document.getElementById('toggleButton');
+        if (!isRunning) {
+            pausiert = false;
+            btn.textContent = 'Stopp';
+        } else {
+            pausiert = true;
+            btn.textContent = 'Start';
+        }
+        isRunning = !isRunning;
+    };
+
+    // Optional: window.ende zum Zurücksetzen
+    window.ende = function () {
+        pausiert = true;
+        gestoppteZeit = 0;
+        aktualisiereAnzeige();
+        const btn = document.getElementById('toggleButton');
+        if (btn) {
+            btn.textContent = 'Start';
+        }
+        isRunning = false;
+    };
 });
