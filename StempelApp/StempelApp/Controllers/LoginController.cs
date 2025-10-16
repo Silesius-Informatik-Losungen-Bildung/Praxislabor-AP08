@@ -3,11 +3,11 @@ using StempelApp.Viewmodels;
 
 namespace StempelApp.Controllers
 {
-    public class AccountController : Controller
+    public class LoginController : Controller
     {
         private readonly HttpClient _httpClient;
 
-        public AccountController(IHttpClientFactory httpClientFactory)
+        public LoginController(IHttpClientFactory httpClientFactory)
         {
             _httpClient = httpClientFactory.CreateClient("AccountApi");
         }

@@ -67,7 +67,12 @@ namespace StempelApp
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapDefaultControllerRoute();
+            //app.MapDefaultControllerRoute();
+            app.MapControllerRoute
+                (
+                name: "default",
+                pattern: "{controller=AccountApi}/{action=Index}"
+                );
 
             app.Run();
         }
