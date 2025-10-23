@@ -124,3 +124,12 @@ input {
         padding: 8px 64px;
     }
 }
+
+.accordion-content {
+    display: none;
+    transition: all 0.3s;
+}
+
+    .accordion-content.open {
+        display: block;
+    }
