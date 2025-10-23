@@ -1,0 +1,39 @@
+﻿@{
+	ViewData["Title"] = "Dashboard";
+}
+
+<section class="section">
+	<div class="container">
+		<h1>Dashboard Übersicht</h1>
+
+		<div class="columns is-multiline">
+			<div class="column is-one-third"> 
+				<a href="@Url.Action("Contacts", "Dashboard")" class="box has-text-centered">
+					<p class="heading">Kontakte</p>
+					<p class="title">42</p>
+				</a>
+			</div>
+
+			<div class="column is-one-third">
+				<a href="@Url.Action("NewRequests", "Dashboard")" class="box has-text-centered">
+					<p class="heading">Neue Anfragen</p>
+					<p class="title">8</p>
+				</a>
+			</div>
+
+			<div class="column is-one-third">
+				<a href="@Url.Action("OpenProjects", "Dashboard")" class="box has-text-centered">
+					<p class="heading">Offene Projekte</p>
+					<p class="title">5</p>
+				</a>
+			</div>
+
+			<div class="column is-one-third">
+				<a href="@Url.Action("Revenue", "Dashboard")" class="box has-text-centered">
+					<p class="heading">Umsatz</p>
+					<p class="title">€12.345</p>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

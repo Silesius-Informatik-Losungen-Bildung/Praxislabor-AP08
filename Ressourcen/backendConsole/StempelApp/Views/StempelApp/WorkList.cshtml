@@ -6,6 +6,8 @@
     <div id="zeiterfassung" class="mb-4">00:00:00</div>
 
     <div class="buttons">
+        <button id="startBtn" type="button" class="button is-family-primary is-medium">Start</button>
+        <button id="stopBtn" type="button" class="button is-family-primary is-medium">Pause</button>
         <button id="toggleButton" type="button" onclick="toggleStartPause()">Start</button>
     </div>
 
@@ -58,6 +60,10 @@
    
 </section>
 
+@section Scripts {
+    <script type="module" src="~/js/Gps.js"></script>
+    <script type="module" src="~/js/Timer.js"></script>
+}
 <script>
     function toggleAccordion(id) {
         var content = document.getElementById(id);
