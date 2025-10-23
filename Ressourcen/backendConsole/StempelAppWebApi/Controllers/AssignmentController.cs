@@ -9,6 +9,11 @@ namespace StempelAppWebApi.Controllers
     {
         private readonly ILogger<AssignmentController> _logger;
 
+        public AssignmentController(ILogger<AssignmentController> logger)
+        {
+            _logger = logger;
+        }
+
         [HttpGet]
         public IEnumerable<Assignment> Get()
         {

@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Ignore compiled JavaScript files generated from TypeScript
+wwwroot/js/*.js
+wwwroot/js/**/*.js

@@ -11,6 +11,6 @@
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
         public TimeSpan? WorkTime => EndTime - StartTime;
-        public virtual User User { get; set; }
+        public virtual User User { get; set; } = null!;
     }
 }

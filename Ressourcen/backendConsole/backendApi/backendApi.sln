@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelAppCore", "StempelAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelAppLib", "..\StempelAppLib\StempelAppLib.csproj", "{1D8E88F6-6695-4C7F-8649-BD7A8D7DEBE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelAppWebApi", "..\StempelAppWebApi\StempelAppWebApi.csproj", "{D0D5D1BE-4B35-4D97-AB3C-8AC5AA2ED45E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelAppData", "..\StempelAppData\StempelAppData.csproj", "{0882E06F-D9FB-3EB1-8255-E2E143531CB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelAppData", "..\ClassLibrary1\StempelAppData.csproj", "{A08167FD-A1F1-4C92-A5D6-77053BF09591}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelApp", "..\StempelApp\StempelApp.csproj", "{6332D83B-DDF2-438A-84C4-E110D716FEED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,14 @@ Global
 		{1D8E88F6-6695-4C7F-8649-BD7A8D7DEBE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D8E88F6-6695-4C7F-8649-BD7A8D7DEBE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D8E88F6-6695-4C7F-8649-BD7A8D7DEBE9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0D5D1BE-4B35-4D97-AB3C-8AC5AA2ED45E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0D5D1BE-4B35-4D97-AB3C-8AC5AA2ED45E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0D5D1BE-4B35-4D97-AB3C-8AC5AA2ED45E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0D5D1BE-4B35-4D97-AB3C-8AC5AA2ED45E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A08167FD-A1F1-4C92-A5D6-77053BF09591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A08167FD-A1F1-4C92-A5D6-77053BF09591}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A08167FD-A1F1-4C92-A5D6-77053BF09591}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A08167FD-A1F1-4C92-A5D6-77053BF09591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0882E06F-D9FB-3EB1-8255-E2E143531CB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0882E06F-D9FB-3EB1-8255-E2E143531CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0882E06F-D9FB-3EB1-8255-E2E143531CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0882E06F-D9FB-3EB1-8255-E2E143531CB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6332D83B-DDF2-438A-84C4-E110D716FEED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6332D83B-DDF2-438A-84C4-E110D716FEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6332D83B-DDF2-438A-84C4-E110D716FEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6332D83B-DDF2-438A-84C4-E110D716FEED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
