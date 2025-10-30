@@ -21,9 +21,46 @@ namespace StempelApp.Controllers
         {
             return View();
         }
-        public IActionResult Register()
+        public IActionResult Create()
         {
             return View();
+        }
+        [HttpGet]
+        public IActionResult SetPassword(string email, string token)
+        {
+            var model = new SetPasswordViewModel
+            {
+                Email = email,
+                Token = token
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SetPassword(SetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var setPasswordData = new
+            {
+                email = model.Email,
+                token = model.Token,
+                newPassword = model.Password
+            };
+
+            var response = await _httpClient.PostAsJsonAsync("api/Account/set-password", setPasswordData);
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["SuccessMessage"] = "Passwort erfolgreich erstellt! Sie können sich jetzt anmelden.";
+                return RedirectToAction("Login");
+            }
+
+            ModelState.AddModelError("", "Fehler beim Erstellen des Passworts");
+            return View(model);
         }
 
         [HttpPost]
@@ -41,7 +78,6 @@ namespace StempelApp.Controllers
                 password = loginViewModel.Password
             };
 
-            //var loginDataJson = JsonSerializer.Serialize(loginData);
             var response = await _httpClient.PostAsJsonAsync("http://localhost:5209/accountapi/login", loginData);
             if (response.IsSuccessStatusCode)
             {
@@ -51,20 +87,19 @@ namespace StempelApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+        public async Task<IActionResult> Create(CreateViewModel createViewModel)
         {
             if (!ModelState.IsValid)
             {
-                return View(registerViewModel);
+                return View(createViewModel);
             }
 
-            var registerData = new
+            var createData = new
             {
-                email = registerViewModel.Email,
-                password = registerViewModel.Password
+                email = createViewModel.Email
             };
 
-            var response = await _httpClient.PostAsJsonAsync("http://localhost:5209/accountapi/register", registerData);
+            var response = await _httpClient.PostAsJsonAsync("http://localhost:5209/accountapi/create", createData);
 
             if (response.IsSuccessStatusCode)
             {
@@ -94,7 +129,7 @@ namespace StempelApp.Controllers
                 ModelState.AddModelError("", "Registrierung fehlgeschlagen");
             }
 
-            return View(registerViewModel);
+            return View(createViewModel);
         }
 
 
