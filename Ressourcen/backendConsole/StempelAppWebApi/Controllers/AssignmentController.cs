@@ -1,82 +1,76 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using StempelAppCore.Models.Domain;
+using StempelAppCore.Models.Interfaces;
+using StempelAppCore.Models.Requests.Assignment;
+using StempelAppCore.Models.Responses.Assignment;
 
 namespace StempelAppWebApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class AssignmentController : ControllerBase
     {
-        private readonly ILogger<AssignmentController> _logger;
+        private readonly IAssignmentService _service;
+
+        public AssignmentController(IAssignmentService service)
+        {
+            _service = service;
+        }
+
+        [HttpGet("default")]
+        [Authorize(Roles = "SuperUser, CustomerAdmin, BuildingOwner, CleaningPersonnel")]
+        public async Task<ActionResult<AssignmentListResponse>> List(AssignmentListRequest request)
+        {
+            var response = await _service.GetAssignmentsAsync(request);
+
+            if (response.IsSuccess)
+                return Ok(response);
+            else return BadRequest(response.Message);
+        }
 
         [HttpGet]
-        public ActionResult<IEnumerable<UserAssignment>> Get()
+        [Authorize(Roles = "SuperUser, CustomerAdmin, BuildingOwner, CleaningPersonnel")]
+        public async Task<ActionResult<AssignmentGetResponse>> Get([FromQuery] AssignmentGetRequest request)
         {
-            var demoLocData1 = new LocationData()
-            {
-                GPSLongitude = -122.4194,
-                GPSLatitude = 37.7749,
-            };
+            var response = await _service.GetAssignmentAsync(request);
 
-            var demoLocData2 = new LocationData()
-            {
-                GPSLongitude = 11.424,
-                GPSLatitude = -50.1123,
-            };
+            if (response.IsSuccess)
+                return Ok(response);
+            else return BadRequest(response.Message);
 
-            var assignment1 = new UserAssignment()
-            {
-                UserId = 1,
-                Location = demoLocData1,
-            };
-            var assignment2 = new UserAssignment()
-            {
-                UserId = 1,
-                Location = demoLocData2,
-            };
-
-            var assignmentList = new List<UserAssignment>()
-            {
-                assignment1,
-                assignment2,
-            };
-            return assignmentList;
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<UserAssignment> Get(int id)
+        [HttpPost("add")]
+        [Authorize(Roles = "SuperUser, CustomerAdmin, BuildingOwner")]
+        public async Task<ActionResult<AssignmentCreateResponse>> Add([FromBody] AssignmentCreateRequest request)
         {
-            var demoLocData = new LocationData()
-            {
-                GPSLongitude = -122.4194,
-                GPSLatitude = 37.7749,
-            };
+            var response = await _service.CreateNewAssignmentAsync(request);
 
-            var assignment = new UserAssignment()
-            {
-                UserId = 1,
-                Location = demoLocData,
-            };
-
-            return assignment;
+            if (response.IsSuccess)
+                return Ok(response);
+            else return BadRequest(response.Message);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<UserAssignment>> Add()
+        [HttpPost("update")]
+        [Authorize(Roles = "SuperUser, CustomerAdmin, BuildingOwner")]
+        public async Task<ActionResult<AssignmentUpdateResponse>> Update([FromBody] AssignmentUpdateRequest request)
         {
-            var demoLocData = new LocationData()
-            {
-                GPSLongitude = -122.4194,
-                GPSLatitude = 37.7749,
-            };
+            var response = await _service.UpdateAssignmentAsync(request);
 
-            var assignment = new UserAssignment()
-            {
-                UserId = 1,
-                Location = demoLocData,
-            };
+            if (response.IsSuccess)
+                return Ok(response);
+            else return BadRequest(response.Message);
+        }
 
-            return Ok(assignment);
+        [HttpPost("delete")]
+        [Authorize(Roles = "SuperUser, CustomerAdmin, BuildingOwner")]
+        public async Task<ActionResult<AssignmentDeleteResponse>> Delete([FromBody] AssignmentDeleteRequest request)
+        {
+            var response = await _service.DeleteAssignmentAsync(request);
+
+            if (response.IsSuccess)
+                return Ok(response);
+            else return BadRequest(response.Message);
         }
     }
 }

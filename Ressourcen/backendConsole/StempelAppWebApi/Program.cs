@@ -1,3 +1,5 @@
+using StempelAppCore.Models.Interfaces;
+using StempelAppLib.Services;
 
 namespace StempelAppWebApi
 {
@@ -7,9 +9,11 @@ namespace StempelAppWebApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services.AddScoped<IUserService, UserService>();
 
+            // Add services to the container.
             builder.Services.AddControllers();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

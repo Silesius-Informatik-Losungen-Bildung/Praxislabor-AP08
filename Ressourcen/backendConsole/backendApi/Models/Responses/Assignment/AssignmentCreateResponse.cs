@@ -4,6 +4,7 @@ namespace StempelAppCore.Models.Responses.Assignment
 {
     public class AssignmentCreateResponse : BaseResponse
     {
+        public int CreatedAssignmentId { get; set; }
         public int UserId { get; set; }
         public LocationData Location { get; set; }
         public string? Comment { get; set; }

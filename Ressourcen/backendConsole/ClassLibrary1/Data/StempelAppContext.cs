@@ -14,5 +14,7 @@ namespace StempelAppCore.Data
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<ContactInfo> ContactInfos { get; set; }
         public virtual DbSet<Address> Addresses { get; set; }
+        public virtual DbSet<LocationData> Locations { get; set; }
+        public virtual DbSet<AssignmentPicture> Pictures { get; set; }
     }
 }

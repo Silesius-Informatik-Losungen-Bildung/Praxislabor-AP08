@@ -8,21 +8,51 @@ namespace StempelAppLib.Logic.Mapper.QueryAndResponseMappers
 {
     public class AssignmentMapper : IAssignmentMapper
     {
+        public UserAssignment MapFromCreateToAssignment(AssignmentCreateRequest request)
+        {
+            var assignment = new UserAssignment()
+            {
+                AssignmentTimeStamp = request.TimeStamp,
+                Comment = request.Comment,
+                EndTime = request.EndTime,
+                PictureRequired = request.PictureRequired,
+                StartTime = request.StartTime,
+                LocationId = request.LocationId,
+                UserId = request.UserId,
+            };
+            return assignment;
+        }
+
+        public UserAssignment MapFromDeleteToAssignment(AssignmentDeleteRequest request)
+        {
+            var assignment = new UserAssignment()
+            {
+                Id = request.AssignmentId,
+            };
+            return assignment;
+        }
+
+        public UserAssignment MapFromUpdateToAssignment(AssignmentUpdateRequest request)
+        {
+
+            var assignment = new UserAssignment();
+            if (request.NewUserId != null) assignment.UserId = (int)request.NewUserId;
+            if (request.NewComment != null) assignment.Comment = request.NewComment;
+            if (request.NewLocationId != null) assignment.LocationId = (int)request.NewLocationId;
+            if (request.NewTimeStamp != null) assignment.AssignmentTimeStamp = request.NewTimeStamp;
+            if (request.NewStartTime != null) assignment.StartTime = request.NewStartTime;
+            if (request.NewEndTime != null) assignment.EndTime = request.NewEndTime;
+            if (request.PictureId != null) assignment.PictureId = request.PictureId;
+
+            return assignment;
+        }
+
         public AssignmentCreateResponse ToCreateResponse(UserAssignment assignment)
         {
             if (assignment == null) throw new AssignmentMapperException($"Mapping failed. Assignment null.");
             var response = new AssignmentCreateResponse();
 
-            response.PageNumber = assignment.PageNumber;
-            response.PageSize = assignment.PageSize;
-            response.SearchTerm = assignment.SearchTerm;
-            response.SortBy = assignment.SortBy;
-            response.IsAscending = assignment.IsAscending;
-            response.UserId = assignment.UserId;
-            response.Location = assignment.Location;
-
             if (assignment.Comment != null) response.Comment = assignment.Comment;
-            if (assignment.Picture != null) response.Picture = assignment.Picture;
             if (assignment.AssignmentTimeStamp != null) response.TimeStamp = assignment.AssignmentTimeStamp;
             if (assignment.StartTime != null) response.StartTime = assignment.StartTime;
             if (assignment.EndTime != null) response.EndTime = assignment.EndTime;
@@ -34,14 +64,6 @@ namespace StempelAppLib.Logic.Mapper.QueryAndResponseMappers
         {
             if (assignment == null) throw new AssignmentMapperException($"Mapping failed. Assignment null.");
             var response = new AssignmentGetResponse();
-
-            response.PageNumber = assignment.PageNumber;
-            response.PageSize = assignment.PageSize;
-            response.SearchTerm = assignment.SearchTerm;
-            response.SortBy = assignment.SortBy;
-            response.IsAscending = assignment.IsAscending;
-            response.UserId = assignment.UserId;
-            response.Location = assignment.Location;
 
             if (assignment.Comment != null) response.Comment = assignment.Comment;
             if (assignment.Picture != null) response.Picture = assignment.Picture;
@@ -74,12 +96,6 @@ namespace StempelAppLib.Logic.Mapper.QueryAndResponseMappers
         {
             if (assignment == null) throw new AssignmentMapperException($"Mapping failed. Assignment null.");
             var response = new AssignmentUpdateResponse();
-
-            response.PageSize = assignment.PageSize;
-            response.SearchTerm = assignment.SearchTerm;
-            response.SortBy = assignment.SortBy;
-            response.IsAscending = assignment.IsAscending;
-            response.PageNumber = assignment.PageNumber;
 
             if (assignment.Comment != null) response.UpdatedComment = assignment.Comment;
             if (assignment.Picture != null) response.UpdatedPicture = assignment.Picture;

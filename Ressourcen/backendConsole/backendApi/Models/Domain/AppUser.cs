@@ -2,7 +2,6 @@
 {
     public partial class AppUser : BaseEntity
     {
-        public Guid UserGuid { get; set; } = new Guid();
         public int UserTypeId { get; set; }
         public UserType UserType
         {
@@ -13,6 +12,8 @@
         public string LastName { get; set; }
         public string Username { get; set; }
         public string PasswordHash { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
         public ContactInfo ContactInfo { get; set; }
         public DateTime CreatedOnUtc { get; set; }
         public DateTime? LastLoginDateUtc { get; set; }
