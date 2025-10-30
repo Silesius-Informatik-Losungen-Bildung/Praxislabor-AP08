@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StempelApp.Viewmodels;
+using System.Text.Json;
 
 namespace StempelApp.Controllers
 {
@@ -18,15 +19,38 @@ namespace StempelApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(LoginViewModel loginViewModel)
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
             if (!ModelState.IsValid)
             {
                 return View(loginViewModel);
             }
-            return View(); //todo
+
+            //Anfrage an Api
+            var loginData = new
+            {
+                email = loginViewModel.Email,
+                password = loginViewModel.Password
+            };
+
+            //var loginDataJson = JsonSerializer.Serialize(loginData);
+            var response = await _httpClient.PostAsJsonAsync("http://localhost:5209/accountapi/login", loginData);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Dashboard");
+            }
+            return View(loginViewModel);
 
 
+
+
+
+        }
+
+        [HttpGet]
+        public IActionResult Dashboard()
+        {
+            return View();
         }
 
     }
