@@ -51,7 +51,7 @@ namespace StempelApp.Controllers
                 newPassword = model.Password
             };
 
-            var response = await _httpClient.PostAsJsonAsync("api/Account/set-password", setPasswordData);
+            var response = await _httpClient.PostAsJsonAsync("Accountapi/set-password", setPasswordData);
 
             if (response.IsSuccessStatusCode)
             {
