@@ -95,33 +95,47 @@ namespace StempelApp.Controllers
             return BadRequest(new { Success = false, Errors = result.Errors });
         }
 
-        [HttpGet("set-password")] //todo
-        public async Task<IActionResult> SetPassword([FromQuery] string Email, string Token)
+        [HttpGet] //todo
+        public IActionResult SetPassword([FromQuery] string email, [FromQuery] string token)
         {
-            Console.WriteLine("debug");
-            Console.WriteLine("Email");
-            Console.WriteLine("Token");
-            return Ok(); 
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(token))
+                return BadRequest(new { message = "email und token sind erforderlich" });
+
+            var webAppUrl = _configuration["AppSettings:WebUrl"]; // z. B. https://localhost:5136
+            var target = $"{webAppUrl}/Account/SetPassword?email={Uri.EscapeDataString(email)}&token={Uri.EscapeDataString(token)}";
+            return Redirect(target); // 302 Redirect zur WebApp-View
         }
 
-            [HttpPost("set-password")]
-        public async Task<IActionResult> SetPassword(SetPasswordModel model)
+        [HttpPost]
+        public async Task<IActionResult> SetPassword([FromBody] SetPasswordModel model)
         {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
-            {
                 return BadRequest(new { Success = false, Message = "Benutzer nicht gefunden" });
+
+            string decoded;
+            try
+            {
+                decoded = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(model.Token));
             }
-            var decodedToken = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(model.Token));
-            // Password-Reset-Token für erste Passwort-Erstellung verwenden
-            var result = await _userManager.ResetPasswordAsync(user, decodedToken, model.NewPassword);
+            catch
+            {
+                return BadRequest(new { Success = false, Message = "Ungültiger Token" });
+            }
+
+            var result = await _userManager.ResetPasswordAsync(user, decoded, model.NewPassword);
             if (result.Succeeded)
             {
-                // Email als bestätigt markieren
-                user.EmailConfirmed = true;
-                await _userManager.UpdateAsync(user);
+                if (!user.EmailConfirmed)
+                {
+                    user.EmailConfirmed = true;
+                    await _userManager.UpdateAsync(user);
+                }
                 return Ok(new { Success = true, Message = "Passwort erfolgreich erstellt" });
             }
+
             return BadRequest(new { Success = false, Errors = result.Errors });
         }
 
