@@ -76,11 +76,11 @@ namespace StempelApp.Controllers
 
             if (result.Succeeded)
             {
-                // Password-Reset-Token für erste Passwort-Erstellung verwenden
                 var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-                var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
-                var baseUrl = _configuration["AppSettings:BaseUrl"];
-                var setPasswordLink = $"{baseUrl}/accountapi/set-password?Email={user.Email}&Token={encodedToken}";
+                var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token)); // URL-sicher [web:164]
+                var baseUrl = _configuration["AppSettings:BaseUrl"]; // z. B. http://localhost:5209 [web:171]
+                var setPasswordLink = $"{baseUrl}/AccountApi/SetPassword?email={Uri.EscapeDataString(user.Email)}&token={Uri.EscapeDataString(encodedToken)}"; // Pfad + Parameternamen passen [web:171][web:191]
+
 
                 // Email mit "Passwort erstellen"-Link senden
                 await _emailService.SendSetPasswordAsync(user.Email, setPasswordLink);
@@ -138,6 +138,7 @@ namespace StempelApp.Controllers
 
             return BadRequest(new { Success = false, Errors = result.Errors });
         }
+
 
         //[HttpPost("reset-password")]
         //public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordModel model)
