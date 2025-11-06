@@ -135,12 +135,24 @@ namespace StempelApp.Controllers
                 }
                 return Ok(new { Success = true, Message = "Passwort erfolgreich erstellt" });
             }
+            if (!result.Succeeded)
+            {
+                // DEBUG: Alle Identity-Fehler ausgeben
+                foreach (var error in result.Errors)
+                {
+                    Console.WriteLine($"Identity Error: {error.Code} - {error.Description}");
+                }
+                Console.WriteLine($"User PasswordHash: {user.PasswordHash ?? "NULL"}");
+                Console.WriteLine($"User EmailConfirmed: {user.EmailConfirmed}");
+                Console.WriteLine($"Decoded Token Length: {decoded.Length}");
+                return BadRequest(new { Success = false, Errors = result.Errors });
+            }
 
             return BadRequest(new { Success = false, Errors = result.Errors });
         }
 
 
-        //[HttpPost("reset-password")]
+        //[HttpPost]
         //public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordModel model)
         //{
         //    var user = await _userManager.FindByEmailAsync(model.Email);
