@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StempelAppCore.Data;
 using StempelAppCore.Models;
@@ -8,8 +9,24 @@ builder.Services.AddDbContext<StempelAppContext>(options =>
     options.UseInMemoryDatabase("StempelApp"));
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
-var app = builder.Build();
 
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
+    options.Tokens.PasswordResetTokenProvider = TokenOptions.DefaultEmailProvider;
+    options.SignIn.RequireConfirmedEmail = true;
+    //options.Tokens.DefaultProvider = "Default";
+});
+
+builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
+    options.TokenLifespan = TimeSpan.FromHours(24));
+
+builder.Services.AddHttpClient("StempelApp", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5209");
+});
+var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

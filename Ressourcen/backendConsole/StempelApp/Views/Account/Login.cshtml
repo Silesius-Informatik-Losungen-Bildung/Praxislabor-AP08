@@ -3,46 +3,30 @@
 @{
     ViewData["Title"] = "Login";
 }
-<section class="section has-background-white">
-    <div class="container has-background-white">
-        <div class="columns is-centered">
-            <div class="column is-one-third login-box">
 
-                <!--Here begins the form for the login-->
-                <form asp-action="Login" method="post">
-
-                    <!--an error message if the password or email is incorrect-->
-                    <div asp-validation-summary="ModelOnly" class="errormessage"></div>
-
-                    <div class="label">
-                        <label asp-for="UserEmail" class="has-text-black">E-Mail Adresse</label>
-                        <div class="control has-icons-left">
-                            <input asp-for="UserEmail" class="input is-success has-text-black" type="text" />
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
-                            </span>
-                        </div>
-                        <span asp-validation-for="UserEmail" class="errormessage"></span>
-                    </div>
-
-                    <div class="label">
-                        <label asp-for="Password" class="has-text-black"></label>
-                        <div class="control has-icons-left">
-                            <input asp-for="Password" type="password" class="input has-text-black" />
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                        </div>
-                        <span asp-validation-for="Password" class="errormessage"></span>
-                    </div>
-
-                    <div class="has-text-centered">
-                        <button class="button is-success has-text-black is-rounded is-outlined " type="submit">Login</button>
-                    </div>
-
-                </form>
-
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login" asp-controller="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-        </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary my-2" />
+            </div>
+        </form>
     </div>
-</section>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
