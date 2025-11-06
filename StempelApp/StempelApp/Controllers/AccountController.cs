@@ -104,7 +104,7 @@ namespace StempelApp.Controllers
             if (response.IsSuccessStatusCode)
             {
                 // Success-Message für die View setzen
-                ViewBag.SuccessMessage = "Registrierung erfolgreich! Bitte prüfen Sie Ihre E-Mails zur Bestätigung.";
+                ViewBag.SuccessMessage = "E-Mail wurde gesendt, bitte prüfen Sie Ihr Postfach zur Bestätigung.";
 
                 // Model zurücksetzen, damit das Formular leer ist
                 var emptyModel = new CreateViewModel();
