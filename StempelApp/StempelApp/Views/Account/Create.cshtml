@@ -3,6 +3,14 @@
 @{
     ViewData["Title"] = "Account anlegen";
 }
+<!-- SUCCESS-BALKEN HINZUFÜGEN -->
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Erfolg!</strong> @ViewBag.SuccessMessage
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
 
 <div class="row">
     <div class="col-md-4">

@@ -103,8 +103,12 @@ namespace StempelApp.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                TempData["SuccessMessage"] = "Registrierung erfolgreich! Bitte prüfen Sie Ihre E-Mails zur Bestätigung.";
-                return RedirectToAction("Login"); 
+                // Success-Message für die View setzen
+                ViewBag.SuccessMessage = "Registrierung erfolgreich! Bitte prüfen Sie Ihre E-Mails zur Bestätigung.";
+
+                // Model zurücksetzen, damit das Formular leer ist
+                var emptyModel = new CreateViewModel();
+                return View(emptyModel);
             }
 
             if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
