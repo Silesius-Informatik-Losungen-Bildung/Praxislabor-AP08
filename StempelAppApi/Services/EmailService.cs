@@ -41,7 +41,7 @@ namespace StempelAppApi.Services
             var client = new SmtpClient("sandbox.smtp.mailtrap.io", 2525)
             {
                 //Roman
-                //Credentials = new NetworkCredential("61df202cfe8e32", "e673b66b5c3352"),
+                //Credentials = new NetworkCredential("0aab6e1cbf1c58", "555310d5c9e6f5"),
                 //Thomas
                 Credentials = new NetworkCredential("61df202cfe8e32", "e673b66b5c3352"),
                 EnableSsl = true
