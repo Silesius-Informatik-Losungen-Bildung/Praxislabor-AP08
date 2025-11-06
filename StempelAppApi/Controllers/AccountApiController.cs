@@ -72,18 +72,41 @@ namespace StempelApp.Controllers
             };
 
             // User OHNE Passwort erstellen
-            var result = await _userManager.CreateAsync(user); // Kein Password!
+            var result = await _userManager.CreateAsync(user);
 
             if (result.Succeeded)
             {
-                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-                var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token)); // URL-sicher [web:164]
-                var baseUrl = _configuration["AppSettings:BaseUrl"]; // z. B. http://localhost:5209 [web:171]
-                var setPasswordLink = $"{baseUrl}/AccountApi/SetPassword?email={Uri.EscapeDataString(user.Email)}&token={Uri.EscapeDataString(encodedToken)}"; // Pfad + Parameternamen passen [web:171][web:191]
+                // WICHTIG: User aus DB neu laden für Token-Generierung
+                var createdUser = await _userManager.FindByEmailAsync(user.Email);
 
+                if (createdUser == null)
+                {
+                    Console.WriteLine("ERROR: Could not find created user!");
+                    return BadRequest(new { Success = false, Message = "User creation failed" });
+                }
 
-                // Email mit "Passwort erstellen"-Link senden
-                await _emailService.SendSetPasswordAsync(user.Email, setPasswordLink);
+                // Token mit dem neu geladenen User generieren
+                var token = await _userManager.GeneratePasswordResetTokenAsync(createdUser);
+
+                // DEBUG: Token-Länge prüfen
+                Console.WriteLine($"Generated token length: {token.Length}");
+                Console.WriteLine($"Generated token preview: {token.Substring(0, Math.Min(50, token.Length))}...");
+
+                if (token.Length < 20)
+                {
+                    Console.WriteLine("ERROR: Token too short!");
+                    return BadRequest(new { Success = false, Message = "Token generation failed" });
+                }
+
+                var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
+                Console.WriteLine($"Encoded token length: {encodedToken.Length}");
+
+                var baseUrl = _configuration["AppSettings:BaseUrl"];
+                var setPasswordLink = $"{baseUrl}/AccountApi/SetPassword?email={Uri.EscapeDataString(createdUser.Email)}&token={Uri.EscapeDataString(encodedToken)}";
+
+                Console.WriteLine($"Full link: {setPasswordLink}");
+
+                await _emailService.SendSetPasswordAsync(createdUser.Email, setPasswordLink);
 
                 return Ok(new
                 {
@@ -115,17 +138,25 @@ namespace StempelApp.Controllers
             if (user == null)
                 return BadRequest(new { Success = false, Message = "Benutzer nicht gefunden" });
 
-            string decoded;
-            try
+            // Prüfen ob User bereits ein Passwort hat
+            var hasPassword = await _userManager.HasPasswordAsync(user);
+            Console.WriteLine($"User has password: {hasPassword}");
+
+            IdentityResult result;
+            if (!hasPassword)
             {
-                decoded = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(model.Token));
+                // Erstes Passwort setzen - KEIN Token nötig!
+                result = await _userManager.AddPasswordAsync(user, model.NewPassword);
+                Console.WriteLine($"AddPassword Result: {result.Succeeded}");
             }
-            catch
+            else
             {
-                return BadRequest(new { Success = false, Message = "Ungültiger Token" });
+                // Token für Reset verwenden
+                string decoded = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(model.Token));
+                result = await _userManager.ResetPasswordAsync(user, decoded, model.NewPassword);
+                Console.WriteLine($"ResetPassword Result: {result.Succeeded}");
             }
 
-            var result = await _userManager.ResetPasswordAsync(user, decoded, model.NewPassword);
             if (result.Succeeded)
             {
                 if (!user.EmailConfirmed)
@@ -135,21 +166,16 @@ namespace StempelApp.Controllers
                 }
                 return Ok(new { Success = true, Message = "Passwort erfolgreich erstellt" });
             }
-            if (!result.Succeeded)
+
+            // Fehler ausgeben
+            foreach (var error in result.Errors)
             {
-                // DEBUG: Alle Identity-Fehler ausgeben
-                foreach (var error in result.Errors)
-                {
-                    Console.WriteLine($"Identity Error: {error.Code} - {error.Description}");
-                }
-                Console.WriteLine($"User PasswordHash: {user.PasswordHash ?? "NULL"}");
-                Console.WriteLine($"User EmailConfirmed: {user.EmailConfirmed}");
-                Console.WriteLine($"Decoded Token Length: {decoded.Length}");
-                return BadRequest(new { Success = false, Errors = result.Errors });
+                Console.WriteLine($"Error: {error.Code} - {error.Description}");
             }
 
             return BadRequest(new { Success = false, Errors = result.Errors });
         }
+
 
 
         //[HttpPost]

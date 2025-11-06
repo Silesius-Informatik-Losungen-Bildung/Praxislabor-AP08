@@ -35,10 +35,12 @@ namespace StempelAppApi
                 options.Password.RequiredLength = 6;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false; // <- Fehlte
+                options.Password.RequireDigit = false; // <- Fehlte
 
                 // Token-Einstellungen
-                options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
-                options.Tokens.PasswordResetTokenProvider = TokenOptions.DefaultEmailProvider;
+                //options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
+                //options.Tokens.PasswordResetTokenProvider = TokenOptions.DefaultEmailProvider;
             })
             .AddEntityFrameworkStores<StempelAppDbContext>()
              .AddDefaultTokenProviders();
