@@ -133,11 +133,11 @@ namespace StempelApp.Controllers
         }
 
 
-        //[HttpGet]
-        //public IActionResult Dashboard()
-        //{
-        //    return View();
-        //}
+        [HttpGet]
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
 
     }
 }
