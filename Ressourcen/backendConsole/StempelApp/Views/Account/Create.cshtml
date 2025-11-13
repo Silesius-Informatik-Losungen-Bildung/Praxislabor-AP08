@@ -4,21 +4,47 @@
     ViewData["Title"] = "Account anlegen";
 }
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" asp-controller="Account">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+<section class="section has-background-white">
+    <div class="container has-background-white">
+        <div class="columns is-centered">
+            <div class="column is-one-third login-box">
+                <form asp-action="Create" asp-controller="Account">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <div class="control has-icons-left">
+                            <input asp-for="Email" class="input is-success has-text-black" type="text" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label asp-for="Role" class="control-label">Rolle</label>
+                        <div class="control">
+                            <div class="select is-success is-fullwidth">
+                                <select asp-for="Role" class="has-text-black">
+                                    <option value="">-- Bitte auswählen --</option>
+                                    <option value="User">Benutzer</option>
+                                    <option value="Admin">Administrator</option>
+                                    <option value="Manager">Manager</option>
+                                </select>
+                            </div>
+                        </div>
+                        <span asp-validation-for="Role" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" value="Anlegen" class="button is-success has-text-black is-rounded is-outlined" />Erstellen
+                    </div>
+                    <p class="text-muted mt-2">
+                        Sie erhalten eine E-Mail zur Passworteingabe.
+                    </p>
+                </form>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Anlegen" class="btn btn-primary my-2" />
-            </div>
-            <p class="text-muted mt-2">
-                Sie erhalten eine E-Mail zur Passworteingabe.
-            </p>
-        </form>
+        </div>
     </div>
-</div>
+</section>
+
