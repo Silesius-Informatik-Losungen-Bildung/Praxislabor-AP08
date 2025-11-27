@@ -104,7 +104,7 @@ namespace StempelApp.Controllers
             if (response.IsSuccessStatusCode)
             {
                 // Success-Message für die View setzen
-                ViewBag.SuccessMessage = "E-Mail wurde gesendt, bitte prüfen Sie Ihr Postfach zur Bestätigung.";
+                ViewBag.SuccessMessage = "E-Mail wurde gesendet, bitte prüfen Sie Ihr Postfach zur Bestätigung.";
 
                 // Model zurücksetzen, damit das Formular leer ist
                 var emptyModel = new CreateViewModel();
@@ -140,6 +140,55 @@ namespace StempelApp.Controllers
         public IActionResult ResetPassword()
         {
             return View();
+        }
+
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel resetPasswordViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(resetPasswordViewModel);
+            }
+
+            var resetData = new
+            {
+                email = resetPasswordViewModel.Email
+            };
+
+            var response = await _httpClient.PostAsJsonAsync("http://localhost:5209/accountapi/resetpassword", resetData);
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Success-Message für die View setzen
+                ViewBag.SuccessMessage = "E-Mail wurde gesendet, bitte prüfen Sie Ihr Postfach zur Bestätigung.";
+
+                // Model zurücksetzen, damit das Formular leer ist
+                var emptyModel = new CreateViewModel();
+                return View(emptyModel);
+            }
+
+            if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            {
+                try
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    var error = JsonSerializer.Deserialize<JsonElement>(errorContent);
+
+                    if (error.TryGetProperty("message", out var message))
+                    {
+                        ModelState.AddModelError("", message.GetString() ?? "Passwort reset fehlgeschlagen");
+                    }
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "Passwort reset fehlgeschlagen");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Passwort reset fehlgeschlagen");
+            }
+
+            return View(resetPasswordViewModel);
         }
 
 
