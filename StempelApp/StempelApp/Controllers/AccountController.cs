@@ -136,6 +136,12 @@ namespace StempelApp.Controllers
             return View(createViewModel);
         }
 
+        [HttpGet]
+        public IActionResult ResetPassword()
+        {
+            return View();
+        }
+
 
         [HttpGet]
         public IActionResult Dashboard()

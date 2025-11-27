@@ -178,24 +178,24 @@ namespace StempelApp.Controllers
 
 
 
-        //[HttpPost]
-        //public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordModel model)
-        //{
-        //    var user = await _userManager.FindByEmailAsync(model.Email);
-        //    if (user == null)
-        //    {
-        //        return BadRequest(new { Success = false, Message = "Ungültige Anfrage" });
-        //    }
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordModel model)
+        {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                return BadRequest(new { Success = false, Message = "Ungültige Anfrage" });
+            }
 
-        //    var decodedToken = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(model.Token));
-        //    var result = await _userManager.ResetPasswordAsync(user, decodedToken, model.NewPassword);
+            var decodedToken = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(model.Token));
+            var result = await _userManager.ResetPasswordAsync(user, decodedToken, model.NewPassword);
 
-        //    if (result.Succeeded)
-        //    {
-        //        return Ok(new { Success = true, Message = "Passwort erfolgreich zurückgesetzt" });
-        //    }
+            if (result.Succeeded)
+            {
+                return Ok(new { Success = true, Message = "Passwort erfolgreich zurückgesetzt" });
+            }
 
-        //    return BadRequest(new { Success = false, Errors = result.Errors });
-        //}
+            return BadRequest(new { Success = false, Errors = result.Errors });
+        }
     }
 }
