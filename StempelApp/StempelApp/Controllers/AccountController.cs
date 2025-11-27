@@ -142,6 +142,7 @@ namespace StempelApp.Controllers
             return View();
         }
 
+        [HttpPost]
         public async Task<IActionResult> ResetPassword(ResetPasswordViewModel resetPasswordViewModel)
         {
             if (!ModelState.IsValid)
@@ -154,7 +155,7 @@ namespace StempelApp.Controllers
                 email = resetPasswordViewModel.Email
             };
 
-            var response = await _httpClient.PostAsJsonAsync("http://localhost:5209/accountapi/sendresetpasswordemail", resetData);
+            var response = await _httpClient.PostAsJsonAsync("AccountApi/SendResetPasswordEmail", resetData);
 
             if (response.IsSuccessStatusCode)
             {

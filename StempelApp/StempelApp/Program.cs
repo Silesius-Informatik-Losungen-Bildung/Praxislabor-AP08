@@ -48,7 +48,7 @@ namespace StempelApp
 
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddHttpClient("StempelApp", client =>
+            builder.Services.AddHttpClient("AccountApi", client =>
             {
                 client.BaseAddress = new Uri("http://localhost:5209");
             });

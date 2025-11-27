@@ -158,21 +158,21 @@ namespace StempelApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SendResetPasswordEmail([FromBody] String email)
+        public async Task<IActionResult> SendResetPasswordEmail([FromBody] SendResetPasswordModel sendResetPasswordModel)
         {
             Console.WriteLine("läuft");
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindByEmailAsync(sendResetPasswordModel.Email);
             if (user == null)
             {
                 return BadRequest(new { Success = false, Message = "Ungültige Anfrage" });
             }
             string passwordLink = await tokenService.getPasswordLink(user);
-            await _emailService.SendPasswordResetAsync(user.Email, passwordLink);
+            await _emailService.SendPasswordResetAsync(user.Email!, passwordLink);
 
             return Ok(new
             {
                 Success = true,
-                Message = "Registrierung erfolgreich. Bitte prüfen Sie Ihre E-Mails um Ihr Passwort zu erstellen."
+                Message = "E-Mail erfolgreich gesendet. Bitte prüfen Sie Ihre E-Mails um Ihr Passwort zu erstellen."
             });
         }
 
