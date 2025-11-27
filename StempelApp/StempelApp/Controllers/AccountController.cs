@@ -154,7 +154,7 @@ namespace StempelApp.Controllers
                 email = resetPasswordViewModel.Email
             };
 
-            var response = await _httpClient.PostAsJsonAsync("http://localhost:5209/accountapi/resetpassword", resetData);
+            var response = await _httpClient.PostAsJsonAsync("http://localhost:5209/accountapi/sendresetpasswordemail", resetData);
 
             if (response.IsSuccessStatusCode)
             {
@@ -162,7 +162,7 @@ namespace StempelApp.Controllers
                 ViewBag.SuccessMessage = "E-Mail wurde gesendet, bitte prüfen Sie Ihr Postfach zur Bestätigung.";
 
                 // Model zurücksetzen, damit das Formular leer ist
-                var emptyModel = new CreateViewModel();
+                var emptyModel = new ResetPasswordViewModel();
                 return View(emptyModel);
             }
 
