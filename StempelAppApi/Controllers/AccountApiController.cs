@@ -18,7 +18,7 @@ namespace StempelApp.Controllers
         private readonly SignInManager<IdentityUser> _signInManager = signInManager;
         private readonly IConfiguration _configuration = configuration;
         private readonly IEmailService _emailService = emailService;
-
+        private readonly TokenService tokenService = new TokenService(configuration, userManager);
 
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
@@ -85,28 +85,9 @@ namespace StempelApp.Controllers
                     return BadRequest(new { Success = false, Message = "User creation failed" });
                 }
 
-                // Token mit dem neu geladenen User generieren
-                var token = await _userManager.GeneratePasswordResetTokenAsync(createdUser);
+                string passwordLink = await tokenService.getPasswordLink(createdUser);
 
-                // DEBUG: Token-Länge prüfen
-                Console.WriteLine($"Generated token length: {token.Length}");
-                Console.WriteLine($"Generated token preview: {token.Substring(0, Math.Min(50, token.Length))}...");
-
-                if (token.Length < 20)
-                {
-                    Console.WriteLine("ERROR: Token too short!");
-                    return BadRequest(new { Success = false, Message = "Token generation failed" });
-                }
-
-                var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
-                Console.WriteLine($"Encoded token length: {encodedToken.Length}");
-
-                var baseUrl = _configuration["AppSettings:BaseUrl"];
-                var setPasswordLink = $"{baseUrl}/AccountApi/SetPassword?email={Uri.EscapeDataString(createdUser.Email)}&token={Uri.EscapeDataString(encodedToken)}";
-
-                Console.WriteLine($"Full link: {setPasswordLink}");
-
-                await _emailService.SendSetPasswordAsync(createdUser.Email, setPasswordLink);
+                await _emailService.SendSetPasswordAsync(createdUser.Email, passwordLink);
 
                 return Ok(new
                 {
@@ -176,6 +157,24 @@ namespace StempelApp.Controllers
             return BadRequest(new { Success = false, Errors = result.Errors });
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SendResetPasswordEmail([FromBody] String email)
+        {
+            Console.WriteLine("läuft");
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return BadRequest(new { Success = false, Message = "Ungültige Anfrage" });
+            }
+            string passwordLink = await tokenService.getPasswordLink(user);
+            await _emailService.SendPasswordResetAsync(user.Email, passwordLink);
+
+            return Ok(new
+            {
+                Success = true,
+                Message = "Registrierung erfolgreich. Bitte prüfen Sie Ihre E-Mails um Ihr Passwort zu erstellen."
+            });
+        }
 
 
         [HttpPost]
