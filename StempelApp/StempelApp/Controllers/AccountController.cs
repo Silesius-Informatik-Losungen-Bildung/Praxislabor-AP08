@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using StempelApp.Viewmodels;
 using System.Text.Json;
@@ -8,20 +10,31 @@ namespace StempelApp.Controllers
     public class AccountController : Controller
     {
         private readonly HttpClient _httpClient;
+        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public AccountController(IHttpClientFactory httpClientFactory)
+        public AccountController(IHttpClientFactory httpClientFactory, SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             _httpClient = httpClientFactory.CreateClient("AccountApi");
+            _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult Login()
+        [HttpGet]
+        public async Task<IActionResult> Login()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Dashboard", "Account");
+            }
+
             return View();
         }
+
         public IActionResult Create()
         {
             return View();
@@ -72,20 +85,45 @@ namespace StempelApp.Controllers
                 return View(loginViewModel);
             }
 
-            //Anfrage an Api
-            var loginData = new
-            {
-                email = loginViewModel.Email,
-                password = loginViewModel.Password
-            };
+            // ✅ DIREKT mit WebApp Identity anmelden (KEIN API-Call!)
+            var result = await _signInManager.PasswordSignInAsync(
+                loginViewModel.Email,
+                loginViewModel.Password,
+                isPersistent: true,  // "Angemeldet bleiben"
+                lockoutOnFailure: false);
 
-            var response = await _httpClient.PostAsJsonAsync("http://localhost:5209/accountapi/login", loginData);
-            if (response.IsSuccessStatusCode)
+            if (result.Succeeded)
             {
+                Console.WriteLine($"✅ Login erfolgreich: {loginViewModel.Email}");
                 return RedirectToAction("Dashboard");
             }
+
+            if (result.IsLockedOut)
+            {
+                ModelState.AddModelError("", "Account vorübergehend gesperrt.");
+            }
+            else if (result.RequiresTwoFactor)
+            {
+                ModelState.AddModelError("", "Zwei-Faktor-Authentifizierung erforderlich.");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Ungültige Anmeldedaten.");
+                // Bei falschem Passwort: Lockout-Zähler erhöhen
+                await _signInManager.PasswordSignInAsync(loginViewModel.Email, loginViewModel.Password, false, true);
+            }
+
             return View(loginViewModel);
         }
+
+        [HttpPost]
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login");
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateViewModel createViewModel)
@@ -195,11 +233,13 @@ namespace StempelApp.Controllers
 
 
         [HttpGet]
-        //[Authorize]
-        public IActionResult Dashboard()
+        [Authorize]
+        public async Task<IActionResult> Dashboard()
         {
             return View();
         }
+
+
 
     }
 }

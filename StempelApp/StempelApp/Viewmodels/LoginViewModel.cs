@@ -12,5 +12,6 @@ namespace StempelApp.Viewmodels
         [PasswordPropertyText]
         [Required(ErrorMessage = "Passwort ist erforderlich.")]
         public string Password { get; set; } = null!;
+        public bool RememberMe { get; set; }
     }
 }
