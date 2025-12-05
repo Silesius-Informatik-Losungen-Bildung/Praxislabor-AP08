@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 appsettings.json
+/StempelApp/StempelApp/appsettings.json
