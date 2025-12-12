@@ -1,10 +1,9 @@
-﻿//ladet die Erweiterungen für Sass herunter "Abstractions SASS Compiler" und "Web Compiler 2022+" unter Erweiterungen verwalten und dann
+﻿//ladet die Erweiterungen für Sass herunter "Web Compiler 2022+" unter Erweiterungen verwalten und dann
 //Visual Studio neu starten, damit die Warnung verschwindet
 
 
-@use "sass:color";
 
-$light-grey: #f5f5f5; 
+$light-grey: #f5f5f5;
 
 
 html,
@@ -12,6 +11,7 @@ body {
     height: 100%;
     margin: 0;
     background-color: white !important;
+    color: black !important;
 }
 
 body {
@@ -30,7 +30,6 @@ footer {
     width: 100%;
 }
 
-
 .btn {
     &:focus,
     &:active:focus {
@@ -44,12 +43,10 @@ footer {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-
 .login-box {
     max-width: 400px;
     margin: 0 auto;
 }
-
 
 .label {
     margin-top: 20px;
@@ -71,7 +68,6 @@ footer {
     font-weight: bold;
 }
 
-
 input {
     background-color: white !important;
 
@@ -81,7 +77,6 @@ input {
     }
 }
 
-
 .accordion {
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -89,7 +84,7 @@ input {
     overflow: hidden;
 
     &-header {
-        background: $light-grey;
+        background-color: $light-grey;
         padding: 12px;
         cursor: pointer;
         font-weight: bold;
@@ -98,7 +93,8 @@ input {
         align-items: center;
 
         &:hover {
-            background: color.darken($light-grey, 5%);
+            
+            background-color: darken($light-grey, 5%);
             cursor: pointer;
         }
     }
@@ -120,17 +116,13 @@ input {
     }
 }
 
-
-
-
-
 @media (max-width: 600px) {
     .accordion-header {
         flex-direction: column;
         align-items: flex-start;
 
         .time {
-           margin-top: 0.25rem;
+            margin-top: 0.25rem;
         }
     }
 
