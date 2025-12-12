@@ -236,7 +236,7 @@ namespace StempelApp.Controllers
         [Authorize]
         public async Task<IActionResult> Dashboard()
         {
-            return View();
+            return View("DashboardAppAdmin");
         }
 
 
