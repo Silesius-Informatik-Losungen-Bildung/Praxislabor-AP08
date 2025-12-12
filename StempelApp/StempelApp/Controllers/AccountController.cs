@@ -232,12 +232,7 @@ namespace StempelApp.Controllers
         }
 
 
-        [HttpGet]
-        [Authorize(Roles = "appAdmin")]
-        public async Task<IActionResult> Dashboard()
-        {
-            return View("DashboardAppAdmin");
-        }
+       
 
 
 
