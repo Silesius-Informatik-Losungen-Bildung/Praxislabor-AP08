@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace StempelApp.Controllers
 {
@@ -10,7 +9,26 @@ namespace StempelApp.Controllers
         [Authorize]
         public async Task<IActionResult> Dashboard()
         {
-            return View("DashboardAppAdmin");
+            var role = User.Claims
+                        .FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.Role)?.Value;
+
+            switch (role)
+            {
+                case "appAdmin":
+                    return View("DashboardAppAdmin");
+
+                case "cleaningAdmin":
+                    return View("DashboardCleaningAdmin");
+
+                case "cleaningStaff":
+                    return View("DashboardCleaningStaff");
+
+                case "buildingOwner":
+                    return View("DashboardBuildingOwner");
+                
+                default:
+                    return View("Index");
+            }
         }
     }
 }
