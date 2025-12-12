@@ -95,7 +95,7 @@ namespace StempelApp.Controllers
             if (result.Succeeded)
             {
                 Console.WriteLine($"✅ Login erfolgreich: {loginViewModel.Email}");
-                return RedirectToAction("Dashboard");
+                return RedirectToAction("Dashboard", "Home");
             }
 
             if (result.IsLockedOut)
