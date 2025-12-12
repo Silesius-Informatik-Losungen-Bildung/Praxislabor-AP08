@@ -7,7 +7,7 @@ namespace StempelApp.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
-        [Authorize(Roles = "appAdmin")]
+        [Authorize]
         public async Task<IActionResult> Dashboard()
         {
             return View("DashboardAppAdmin");
