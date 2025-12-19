@@ -29,7 +29,7 @@ namespace StempelApp.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Dashboard", "Account");
+                return RedirectToAction("Dashboard", "Home");
             }
 
             return View();
