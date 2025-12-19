@@ -5,10 +5,10 @@
 }
 
 <!-- SUCCESS-BALKEN HINZUFÜGEN -->
-@if (ViewBag.SuccessMessage != null)
+@if (TempData["SuccessMessage"] != null)
 {
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        @ViewBag.SuccessMessage
+        @TempData["SuccessMessage"]
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 }
