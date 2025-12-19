@@ -35,10 +35,10 @@ namespace StempelApp.Controllers
             return View();
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
         [HttpGet]
         public IActionResult SetPassword(string email, string token)
         {

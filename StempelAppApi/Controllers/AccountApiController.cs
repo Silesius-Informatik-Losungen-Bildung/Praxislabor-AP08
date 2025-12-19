@@ -68,14 +68,20 @@ namespace StempelApp.Controllers
             {
                 UserName = model.Email,
                 Email = model.Email,
-                EmailConfirmed = false // Wichtig: Noch nicht bestätigt
+                EmailConfirmed = false, // Wichtig: Noch nicht bestätigt
             };
 
             // User OHNE Passwort erstellen
-            var result = await _userManager.CreateAsync(user);
+            var userResult = await _userManager.CreateAsync(user);
+            var roleResult = await _userManager.AddToRoleAsync(user, model.Role);
 
-            if (result.Succeeded)
+            if (userResult.Succeeded)
             {
+                if (!roleResult.Succeeded)
+                {
+                    Console.WriteLine("ERROR: No role could be assigned.");
+                    return BadRequest(new { Success = false, Message = "Assigning a role to the user failed" });
+                }
                 // WICHTIG: User aus DB neu laden für Token-Generierung
                 var createdUser = await _userManager.FindByEmailAsync(user.Email);
 
@@ -96,7 +102,7 @@ namespace StempelApp.Controllers
                 });
             }
 
-            return BadRequest(new { Success = false, Errors = result.Errors });
+            return BadRequest(new { Success = false, Errors = userResult.Errors });
         }
 
         [HttpGet] //todo
