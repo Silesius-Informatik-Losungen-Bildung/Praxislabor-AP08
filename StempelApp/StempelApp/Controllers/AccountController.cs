@@ -149,7 +149,7 @@ namespace StempelApp.Controllers
                 // Model zurücksetzen, damit das Formular leer ist
                 //var emptyModel = new CreateViewModel();
                 //return View(emptyModel);
-                return RedirectToAction("DashboardAppAdmin", "Home");
+                return RedirectToAction("Dashboard", "Home");
             }
 
             if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
