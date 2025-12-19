@@ -8,5 +8,6 @@ namespace StempelApp.Viewmodels
         [EmailAddress(ErrorMessage = "Ungültige E-Mail-Adresse.")]
         [Required(ErrorMessage = "E-Mail-Adresse ist erforderlich.")]
         public string Email { get; set; } = null!;
+        public string Role { get; set; } = null!;
     }
 }

@@ -135,7 +135,8 @@ namespace StempelApp.Controllers
 
             var createData = new
             {
-                email = createViewModel.Email
+                email = createViewModel.Email,
+                role = createViewModel.Role
             };
 
             var response = await _httpClient.PostAsJsonAsync("http://localhost:5209/accountapi/create", createData);
@@ -143,11 +144,12 @@ namespace StempelApp.Controllers
             if (response.IsSuccessStatusCode)
             {
                 // Success-Message für die View setzen
-                ViewBag.SuccessMessage = "E-Mail wurde gesendet, bitte prüfen Sie Ihr Postfach zur Bestätigung.";
+                ViewBag.SuccessMessage = "E-Mail wurde erfolgreich gesendet.";
 
                 // Model zurücksetzen, damit das Formular leer ist
-                var emptyModel = new CreateViewModel();
-                return View(emptyModel);
+                //var emptyModel = new CreateViewModel();
+                //return View(emptyModel);
+                return RedirectToAction("DashboardAppAdmin", "Home");
             }
 
             if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
