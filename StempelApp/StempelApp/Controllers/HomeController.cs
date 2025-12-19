@@ -30,34 +30,5 @@ namespace StempelApp.Controllers
                     return View("Index");
             }
         }
-
-        [Authorize(Roles = "appAdmin")]
-        public IActionResult DashboardAppAdmin()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "cleaningAdmin")]
-        public IActionResult DashboardCleaningAdmin()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "cleaningStaff")]
-        public IActionResult DashboardCleaningStaff()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "buildingOwner")]
-        public IActionResult BuildingOwner()
-        {
-            return View();
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
     }
 }
