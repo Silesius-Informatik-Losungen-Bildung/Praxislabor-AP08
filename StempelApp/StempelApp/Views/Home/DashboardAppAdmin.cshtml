@@ -1,7 +1,79 @@
-﻿@{
+﻿@model StempelApp.Viewmodels.CreateViewModel
+
+@{
     ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Dashboard AppAdmin</h1>
+<!-- SUCCESS-BALKEN HINZUFÜGEN -->
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @ViewBag.SuccessMessage
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <p class="text-muted mt-2">
+            Hinweis: Der User erhält eine E-Mail zur Passworteingabe.
+        </p>
+         <form asp-action="Create" asp-controller="Account" method="post" class="border p-3 mb-3">
+            <h5>AppAdmin erstellen</h5>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <input type="hidden" asp-for="Role" value="AppAdmin" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">AppAdmin Anlegen</button>
+        </form>
+
+        <form asp-action="Create" asp-controller="Account" method="post" class="border p-3 mb-3">
+            <h5>CleaningAdmin erstellen</h5>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <input type="hidden" asp-for="Role" value="CleaningAdmin" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">CleaningAdmin Anlegen</button>
+        </form>
+
+        <form asp-action="Create" asp-controller="Account" method="post" class="border p-3 mb-3">
+            <h5>CleaningStaff erstellen</h5>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <input type="hidden" asp-for="Role" value="CleaningStaff" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">CleaningStaff Anlegen</button>
+        </form>
+
+        <form asp-action="Create" asp-controller="Account" method="post" class="border p-3 mb-3">
+            <h5>BuildingOwner erstellen</h5>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <input type="hidden" asp-for="Role" value="BuildingOwner" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">BuildingOwner Anlegen</button>
+        </form>
+    </div>
 </div>
+
+
+@* <div class="text-center">
+    <h1 class="display-4">Dashboard AppAdmin</h1>
+    <form asp-action="Create" asp-controller="Account" method="post">
+        <input type="hidden" name="role" value="CleaningAdmin" />
+        <button type="submit" class="btn btn-danger my-2">CleaningAdmin</button>
+    </form>
+    <form asp-action="Create" asp-controller="Account" method="post">
+        <input type="hidden" name="role" value="CleaningStaff" />
+        <button type="submit" class="btn btn-danger my-2">CleaningStaff</button>
+    </form>
+</div>
+ *@
