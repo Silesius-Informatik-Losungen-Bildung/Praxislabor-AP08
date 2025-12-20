@@ -90,7 +90,13 @@ namespace StempelApp.Controllers
                 loginViewModel.Email,
                 loginViewModel.Password,
                 isPersistent: true,  // "Angemeldet bleiben"
-                lockoutOnFailure: false);
+                lockoutOnFailure: true);
+
+            if (result.IsLockedOut)
+            {
+                ModelState.AddModelError("", "Konto ist wegen zu vieler Fehlversuche gesperrt.");
+                return View(loginViewModel);
+            }
 
             if (result.Succeeded)
             {
