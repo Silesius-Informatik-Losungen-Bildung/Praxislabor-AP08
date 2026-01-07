@@ -1,32 +1,34 @@
-using System.Diagnostics;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using StempelApp.Models;
 
 namespace StempelApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Dashboard()
         {
-            _logger = logger;
-        }
+            var role = User.Claims
+                        .FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.Role)?.Value;
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+            switch (role)
+            {
+                case "appAdmin":
+                    return View("DashboardAppAdmin");
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+                case "cleaningAdmin":
+                    return View("DashboardCleaningAdmin");
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+                case "cleaningStaff":
+                    return View("DashboardCleaningStaff");
+
+                case "buildingOwner":
+                    return View("DashboardBuildingOwner");
+                
+                default:
+                    return View("Index");
+            }
         }
     }
 }
