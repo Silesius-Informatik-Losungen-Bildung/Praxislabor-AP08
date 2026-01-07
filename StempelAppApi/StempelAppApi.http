@@ -1,6 +1,0 @@
-@StempelAppApi_HostAddress = http://localhost:5209
-
-GET {{StempelAppApi_HostAddress}}/stempelapp/login
-Accept: application/json
-
-###

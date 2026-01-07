@@ -11,7 +11,6 @@ namespace StempelApp
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // *** DATA PROTECTION HINZUFÜGEN ***
             builder.Services.AddDataProtection()
                 .PersistKeysToFileSystem(new DirectoryInfo(Path.Combine(Directory.GetCurrentDirectory(), "keys")))
                 .SetApplicationName("StempelApp")
@@ -53,9 +52,10 @@ namespace StempelApp
                 options.TokenLifespan = TimeSpan.FromHours(24));
 
             builder.Services.AddControllersWithViews();
+            var apiBaseUrl = builder.Configuration["AppSettings:BaseUrl"];
             builder.Services.AddHttpClient("AccountApi", client =>
             {
-                client.BaseAddress = new Uri("http://localhost:5209/");
+                client.BaseAddress = new Uri(apiBaseUrl);
             });
 
             var app = builder.Build();

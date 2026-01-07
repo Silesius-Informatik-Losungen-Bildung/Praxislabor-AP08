@@ -68,7 +68,7 @@ namespace StempelApp.Controllers
             {
                 UserName = model.Email,
                 Email = model.Email,
-                EmailConfirmed = false, // Wichtig: Noch nicht bestätigt
+                EmailConfirmed = false,
             };
 
             // User OHNE Passwort erstellen
@@ -105,7 +105,7 @@ namespace StempelApp.Controllers
             return BadRequest(new { Success = false, Errors = userResult.Errors });
         }
 
-        [HttpGet] //todo
+        [HttpGet]
         public IActionResult SetPassword([FromQuery] string email, [FromQuery] string token)
         {
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(token))
@@ -113,7 +113,7 @@ namespace StempelApp.Controllers
 
             var webAppUrl = _configuration["AppSettings:WebUrl"]; // z. B. https://localhost:5136
             var target = $"{webAppUrl}/Account/SetPassword?email={Uri.EscapeDataString(email)}&token={Uri.EscapeDataString(token)}";
-            return Redirect(target); // 302 Redirect zur WebApp-View
+            return Redirect(target);
         }
 
         [HttpPost]

@@ -35,10 +35,6 @@ namespace StempelApp.Controllers
             return View();
         }
 
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
         [HttpGet]
         public IActionResult SetPassword(string email, string token)
         {
@@ -65,7 +61,7 @@ namespace StempelApp.Controllers
                 newPassword = model.Password
             };
 
-            var response = await _httpClient.PostAsJsonAsync("http://localhost:5209/AccountApi/SetPassword", setPasswordData);
+            var response = await _httpClient.PostAsJsonAsync("/AccountApi/SetPassword", setPasswordData);
 
             if (response.IsSuccessStatusCode)
             {
@@ -145,16 +141,13 @@ namespace StempelApp.Controllers
                 role = createViewModel.Role
             };
 
-            var response = await _httpClient.PostAsJsonAsync("http://localhost:5209/accountapi/create", createData);
+            var response = await _httpClient.PostAsJsonAsync("/Accountapi/create", createData);
 
             if (response.IsSuccessStatusCode)
             {
                 // Success-Message für die View setzen
                 TempData["SuccessMessage"] = "E-Mail wurde erfolgreich gesendet.";
 
-                // Model zurücksetzen, damit das Formular leer ist
-                //var emptyModel = new CreateViewModel();
-                //return View(emptyModel);
                 return RedirectToAction("Dashboard", "Home");
             }
 
