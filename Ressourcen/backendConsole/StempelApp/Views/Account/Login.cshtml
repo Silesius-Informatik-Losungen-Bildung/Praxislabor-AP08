@@ -1,0 +1,48 @@
+﻿@model StempelApp.Viewmodels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+<section class="section has-background-white">
+    <div class="container has-background-white">
+        <div class="columns is-centered">
+            <div class="column is-one-third login-box">
+
+                <!--Here begins the form for the login-->
+                <form asp-action="Login" method="post">
+
+                    <!--an error message if the password or email is incorrect-->
+                    <div asp-validation-summary="ModelOnly" class="errormessage"></div>
+
+                    <div class="label">
+                        <label asp-for="UserEmail" class="has-text-black">E-Mail Adresse</label>
+                        <div class="control has-icons-left">
+                            <input asp-for="UserEmail" class="input is-success has-text-black" type="text" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                        <span asp-validation-for="UserEmail" class="errormessage"></span>
+                    </div>
+
+                    <div class="label">
+                        <label asp-for="Password" class="has-text-black"></label>
+                        <div class="control has-icons-left">
+                            <input asp-for="Password" type="password" class="input has-text-black" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </div>
+                        <span asp-validation-for="Password" class="errormessage"></span>
+                    </div>
+
+                    <div class="has-text-centered">
+                        <button class="button is-success has-text-black is-rounded is-outlined " type="submit">Login</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
