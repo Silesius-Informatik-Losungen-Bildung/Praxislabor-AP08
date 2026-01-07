@@ -1,5 +1,129 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model StempelApp.Viewmodels.KontaktViewModel
+
+<section class="section">
+    <div class="container">
+        <h1 class="title">Kontaktdaten</h1>
+
+        @if (Model == null)
+        {
+            <div class="notification is-danger">
+                <strong>Fehler:</strong> Das Datenmodell konnte nicht geladen werden.
+                Bitte prüfen Sie, ob der Controller <code>return View(model);</code> aufruft.
+            </div>
+        }
+        else
+        {
+            @* Alles was hier drin steht, ist sicher vor einem NullReference-Absturz des Models *@
+
+            <div class="tabs is-boxed">
+                <ul>
+                    <li class="is-active" data-target="staff-content">
+                        <a>
+                            <span class="icon is-small"><i class="fas fa-users"></i></span>
+                            <span>Personal (@(Model.Mitarbeiter?.Count ?? 0))</span>
+                        </a>
+                    </li>
+                    <li data-target="owner-content">
+                        <a>
+                            <span class="icon is-small"><i class="fas fa-building"></i></span>
+                            <span>Immobilienbesitzer (@(Model.Immobilienbesitzer?.Count ?? 0))</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="tab-content">
+                <div class="tab-pane" id="staff-content">
+                    <div class="box">
+                        <table class="table is-fullwidth is-striped is-hoverable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Rolle</th>
+                                    <th>E-Mail</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Mitarbeiter != null)
+                                {
+                                    @foreach (var m in Model.Mitarbeiter)
+                                    {
+                                        <tr>
+                                            <td><strong>@m?.FirstName @m?.LastName</strong></td>
+                                            <td><span class="tag is-info is-light">@m?.UserType</span></td>
+                                            <td>@m?.ContactInfo?.Email</td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane is-hidden" id="owner-content">
+                    <div class="box">
+                        <table class="table is-fullwidth is-striped is-hoverable">
+                            <thead>
+                                <tr>
+                                    <th>Besitzer</th>
+                                    <th>Projekte & Aktivitäten</th>
+                                    <th>Kontakt</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Immobilienbesitzer != null)
+                                {
+                                    @foreach (var c in Model.Immobilienbesitzer)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <p class="title is-6">@c.User?.FirstName @c.User?.LastName</p>
+                                                <p class="subtitle is-7">@@@c.User?.Username</p>
+                                            </td>
+                                            <td>
+                                                @foreach (var p in c.Projects ?? new List<Project>())
+                                                {
+                                                    <div class="mb-3">
+                                                        <p class="is-size-7 has-text-weight-bold">@p.CustomerName (@(p.Address?.City ?? "Keine Stadt"))</p>
+                                                        <div class="tags">
+                                                            @foreach (var act in p.Activities ?? new List<string>())
+                                                            {
+                                                                <span class="tag is-primary is-light">@act</span>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a href="mailto:@c.User?.ContactInfo?.Email" class="is-size-7">@c.User?.ContactInfo?.Email</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+ @* <-- Hier endet das else! Ganz wichtig. *@
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll('.tabs li').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.tabs li').forEach(item => item.classList.remove('is-active'));
+            tab.classList.add('is-active');
+
+            const target = tab.dataset.target;
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                if (pane.id === target) {
+                    pane.classList.remove('is-hidden');
+                } else {
+                    pane.classList.add('is-hidden');
+                }
+            });
+        });
+    });
+</script>
