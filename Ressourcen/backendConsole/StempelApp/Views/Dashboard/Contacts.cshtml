@@ -13,8 +13,6 @@
         }
         else
         {
-            @* Alles was hier drin steht, ist sicher vor einem NullReference-Absturz des Models *@
-
             <div class="tabs is-boxed">
                 <ul>
                     <li class="is-active" data-target="staff-content">
@@ -33,6 +31,7 @@
             </div>
 
             <div id="tab-content">
+                @* --- TAB: PERSONAL --- *@
                 <div class="tab-pane" id="staff-content">
                     <div class="box">
                         <table class="table is-fullwidth is-striped is-hoverable">
@@ -41,6 +40,7 @@
                                     <th>Name</th>
                                     <th>Rolle</th>
                                     <th>E-Mail</th>
+                                    <th class="has-text-right">Aktionen</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,6 +52,17 @@
                                             <td><strong>@m?.FirstName @m?.LastName</strong></td>
                                             <td><span class="tag is-info is-light">@m?.UserType</span></td>
                                             <td>@m?.ContactInfo?.Email</td>
+                                            <td class="has-text-right">
+                                                <div class="buttons is-right">
+                                                    <a asp-action="EditMitarbeiter" asp-route-id="@m.Id" class="button is-small is-warning is-light" title="Bearbeiten">
+                                                        <span class="icon is-small"><i class="fas fa-edit"></i></span>
+                                                    </a>
+                                                    <a asp-action="DeleteMitarbeiter" asp-route-id="@m.Id" class="button is-small is-danger is-light"
+                                                       onclick="return confirm('Mitarbeiter wirklich löschen?');" title="Löschen">
+                                                        <span class="icon is-small"><i class="fas fa-trash"></i></span>
+                                                    </a>
+                                                </div>
+                                            </td>
                                         </tr>
                                     }
                                 }
@@ -60,6 +71,7 @@
                     </div>
                 </div>
 
+                @* --- TAB: IMMOBILIENBESITZER --- *@
                 <div class="tab-pane is-hidden" id="owner-content">
                     <div class="box">
                         <table class="table is-fullwidth is-striped is-hoverable">
@@ -68,6 +80,7 @@
                                     <th>Besitzer</th>
                                     <th>Projekte & Aktivitäten</th>
                                     <th>Kontakt</th>
+                                    <th class="has-text-right">Aktionen</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -97,6 +110,17 @@
                                             <td>
                                                 <a href="mailto:@c.User?.ContactInfo?.Email" class="is-size-7">@c.User?.ContactInfo?.Email</a>
                                             </td>
+                                            <td class="has-text-right">
+                                                <div class="buttons is-right">
+                                                    <a asp-action="EditBesitzer" asp-route-id="@c.Id" class="button is-small is-info is-light" title="Bearbeiten">
+                                                        <span class="icon is-small"><i class="fas fa-pen"></i></span>
+                                                    </a>
+                                                    <a asp-action="DeleteBesitzer" asp-route-id="@c.Id" class="button is-small is-danger is-light"
+                                                       onclick="return confirm('Besitzer wirklich löschen?');" title="Löschen">
+                                                        <span class="icon is-small"><i class="fas fa-trash"></i></span>
+                                                    </a>
+                                                </div>
+                                            </td>
                                         </tr>
                                     }
                                 }
@@ -106,7 +130,6 @@
                 </div>
             </div>
         }
- @* <-- Hier endet das else! Ganz wichtig. *@
     </div>
 </section>
 
