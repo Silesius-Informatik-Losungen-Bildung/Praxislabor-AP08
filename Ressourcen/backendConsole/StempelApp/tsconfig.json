@@ -6,7 +6,7 @@
         "esModuleInterop": true,
         "outDir": "wwwroot/js",
         "sourceMap": true,
-        "lib": [ "ES2015", "DOM" ],
+        "lib": [ "ES2017", "DOM" ],
         "jsx": "preserve",
         "strict": true
     },

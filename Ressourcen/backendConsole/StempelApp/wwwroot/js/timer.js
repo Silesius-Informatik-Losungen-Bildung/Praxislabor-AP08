@@ -19,6 +19,9 @@ class Stopwatch {
         }
     }
     reset() { this.paused = true; this.timedTime = 0; this.updateDisplay(); }
+    isRunning() {
+        return !this.paused;
+    }
     updateLoop() {
         const now = Date.now();
         if (!this.paused) {
@@ -44,14 +47,31 @@ class Stopwatch {
         return s;
     }
 }
+// const display = document.getElementById("zeiterfassung");
+// if (display) {
+//     const timer = new Stopwatch(display);
+// 
+//     const startBtn = document.getElementById("startBtn");
+//     const pauseBtn = document.getElementById("stopBtn");
+//     //const resetBtn = document.getElementById("resetBtn");
+// 
+//     startBtn?.addEventListener("click", () => timer.start());
+//     pauseBtn?.addEventListener("click", () => timer.stop());
+//     //resetBtn?.addEventListener("click", () => timer.reset());
+// }
 const display = document.getElementById("zeiterfassung");
 if (display) {
     const timer = new Stopwatch(display);
-    const startBtn = document.getElementById("startBtn");
-    const pauseBtn = document.getElementById("stopBtn");
-    //const resetBtn = document.getElementById("resetBtn");
-    startBtn?.addEventListener("click", () => timer.start());
-    pauseBtn?.addEventListener("click", () => timer.stop());
-    //resetBtn?.addEventListener("click", () => timer.reset());
+    const toggleBtn = document.getElementById("toggleBtn");
+    toggleBtn.addEventListener("click", () => {
+        if (timer.isRunning()) {
+            timer.stop();
+            toggleBtn.textContent = "Start";
+        }
+        else {
+            timer.start();
+            toggleBtn.textContent = "Pause";
+        }
+    });
 }
 //# sourceMappingURL=timer.js.map
