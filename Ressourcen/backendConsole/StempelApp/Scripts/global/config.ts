@@ -5,6 +5,7 @@
     dateFormat: string;
     defaultSort: string;
     isDevelopment: boolean;
+    userEmail?: string;
 }
 
 declare global {
