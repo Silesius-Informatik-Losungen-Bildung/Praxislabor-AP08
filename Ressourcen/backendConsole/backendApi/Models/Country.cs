@@ -1,0 +1,8 @@
+﻿namespace StempelAppCore.Models
+{
+    public partial class Country : BaseEntity
+    {
+        public string CountryCode { get; set; }
+        public string CountryName { get; set; }
+    }
+}

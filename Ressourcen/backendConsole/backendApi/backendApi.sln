@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36429.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelAppCore", "StempelAppCore.csproj", "{8A2EF7ED-ECD9-92DE-1785-D4AC8FCCE811}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelAppLib", "..\StempelAppLib\StempelAppLib.csproj", "{1D8E88F6-6695-4C7F-8649-BD7A8D7DEBE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelAppData", "..\StempelAppData\StempelAppData.csproj", "{0882E06F-D9FB-3EB1-8255-E2E143531CB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StempelApp", "..\StempelApp\StempelApp.csproj", "{6332D83B-DDF2-438A-84C4-E110D716FEED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A2EF7ED-ECD9-92DE-1785-D4AC8FCCE811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A2EF7ED-ECD9-92DE-1785-D4AC8FCCE811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A2EF7ED-ECD9-92DE-1785-D4AC8FCCE811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A2EF7ED-ECD9-92DE-1785-D4AC8FCCE811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D8E88F6-6695-4C7F-8649-BD7A8D7DEBE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D8E88F6-6695-4C7F-8649-BD7A8D7DEBE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D8E88F6-6695-4C7F-8649-BD7A8D7DEBE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D8E88F6-6695-4C7F-8649-BD7A8D7DEBE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0882E06F-D9FB-3EB1-8255-E2E143531CB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0882E06F-D9FB-3EB1-8255-E2E143531CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0882E06F-D9FB-3EB1-8255-E2E143531CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0882E06F-D9FB-3EB1-8255-E2E143531CB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6332D83B-DDF2-438A-84C4-E110D716FEED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6332D83B-DDF2-438A-84C4-E110D716FEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6332D83B-DDF2-438A-84C4-E110D716FEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6332D83B-DDF2-438A-84C4-E110D716FEED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BBC06B7-0E72-4B7D-AE33-061291E01B5C}
+	EndGlobalSection
+EndGlobal
