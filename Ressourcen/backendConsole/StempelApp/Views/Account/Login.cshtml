@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Login";
 }
+
 <section class="section has-background-white">
     <div class="container has-background-white">
         <div class="columns is-centered">
@@ -15,14 +16,14 @@
                     <div asp-validation-summary="ModelOnly" class="errormessage"></div>
 
                     <div class="label">
-                        <label asp-for="UserEmail" class="has-text-black">E-Mail Adresse</label>
+                        <label asp-for="Email" class="has-text-black">E-Mail Adresse</label>
                         <div class="control has-icons-left">
-                            <input asp-for="UserEmail" class="input is-success has-text-black" type="text" />
+                            <input asp-for="Email" class="input is-success has-text-black" type="text" />
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
                         </div>
-                        <span asp-validation-for="UserEmail" class="errormessage"></span>
+                        <span asp-validation-for="Email" class="errormessage"></span>
                     </div>
 
                     <div class="label">
@@ -46,3 +47,10 @@
         </div>
     </div>
 </section>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

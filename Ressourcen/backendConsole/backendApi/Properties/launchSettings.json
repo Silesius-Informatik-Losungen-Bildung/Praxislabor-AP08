@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "StempelAppCore": {
+      "commandName": "Project"
+    },
+    "Profil \"1\"": {
+      "commandName": "Executable"
+    }
+  }
+}
