@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="../Praxislabor-AP08-master/Ressourcen/backendConsole/backendApi/StempelAppCore.csproj" />
+  <Project Path="../Praxislabor-AP08-master/Ressourcen/backendConsole/StempelAppData/StempelAppData.csproj" />
+  <Project Path="../Praxislabor-AP08-master/Ressourcen/backendConsole/StempelAppLib/StempelAppLib.csproj" />
+  <Project Path="../Praxislabor-AP08-master/Ressourcen/backendConsole/StempelAppWebApi/StempelAppWebApi.csproj" />
+  <Project Path="../Praxislabor-AP08-master/StempelAppApi/StempelAppApi.csproj" />
+  <Project Path="StempelApp.csproj" />
+</Solution>
